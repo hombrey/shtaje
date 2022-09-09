@@ -1,0 +1,237 @@
+/*{{{element selector*/
+body {
+    /*background-color: black;*/
+}
+video {
+    z-index: 1;
+    position: fixed;
+    top: 10vh;
+    right: 3vw;
+    height: 50vh;
+    width: 70vw;
+} /*video*/
+
+select {
+    overflow: auto;
+    color: white;
+    font-size: 0.9em;
+    /*background-color: rgba(0,0,0,0.0);*/
+    background-color: rgba(0,0,0,0.6);
+    border: 1px solid black; 
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-radius: 4%;
+} /*select*/
+
+select:focus {
+    border: 4px solid yellow; 
+} /*select:focus*/
+
+/*}}}element selector*/
+
+/*{{{class selector*/
+.fullPage {
+    z-index: 0;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 100vh;
+    width: 100vw;
+    margin: auto;
+    overflow-x: hidden;
+} /*fullPage*/
+
+
+.vidNonMax {
+    z-index: 1;
+    position: fixed;
+    top: 2vh;
+    left: 1vw;
+    height: 98vh;
+    width: 98vw;
+    z-index: 0;
+} /*vidNonMax*/
+
+.vidMax {
+    z-index: 1;
+    position: fixed;
+    top: 1vh;
+    left: 1vw;
+    height: 98vh;
+    width: 98vw;
+    z-index: 2;
+} /*vidMax*/
+
+.selector {
+    background-color: rgba(0,0,0,0.0);
+
+    z-index: 1;
+    position: fixed;
+    top: 0.4vh;
+    left: 0.1vw;
+    height: 1.1vh;
+    width: 20vw;
+    /*border-radius: 10%;*/
+    /*width: auto;*/
+    /*height: auto;*/
+
+    display: flex;
+    justify-content: left;
+    align-items: center;
+} /*.selector*/
+/*}}}class*/
+
+/*{{{id selector*/
+#myBody {
+
+} /*#myBody*/
+
+#backgroundX {
+
+} /*#backgroundX*/
+
+#filePicker {
+
+} /*filePicker
+
+
+/*}}}id selector*/
+
+/*{{{pentool*/
+
+    /*class*/
+
+    .hiddenTool {
+        /*opacity: 0.0;*/
+        visibility: hidden;
+        /*bottom: -20vh;*/
+    } /*hiddenTool*/
+
+    .unhiddenTool {
+        /*opacity: 1.0;*/
+        visibility: visble;
+        /*bottom: 1vh;*/
+    } /*unhiddenTool*/
+
+    .stroke-color {
+        width: 6vh;
+        height: 6vh;
+        display: inline-block;
+        border-radius: 50%;
+        border: 1px solid black;
+    } /*stroke-color*/
+
+    /*ID*/
+
+    #pentool {
+        z-index: 4;
+        position: fixed;
+        border-radius: 20%;
+        right: 10vw;
+        bottom: 15vh;
+        height : 24.8vh;
+        width : 12.5vh;
+        background: #00000044;
+    } /*#pentool*/
+
+    #color2{ position: absolute;
+        top: 0.1vh; left: 0.1vh;
+    } /*color1*/
+
+    #color3{ position: absolute;
+        top: 0.1vh; left: 6.2vh;
+    } /*color1*/
+
+    #color4{ position: absolute;
+        top: 6.2vh; left: 0.1vh;
+    } /*color1*/
+
+    #color5{ position: absolute;
+        top: 6.2vh; left: 6.2vh;
+    } /*color1*/
+
+    #color1{ position: absolute;
+        top: 12.3vh; left: 0.1vh;
+    } /*color1*/
+
+    #color6{ position: absolute;
+        top: 12.3vh; left: 6.2vh;
+    } /*color1*/
+
+    #undoButton{ position: absolute;
+        pointer-events: auto;
+        color:white;
+        background:transparent;
+        top: 18.8vh; left: 0.1vh;
+    } /*undo*/
+
+    #clearButton{ position: absolute;
+        pointer-events: auto;
+        color:white;
+        background:transparent;
+        top: 18.8vh; left: 6.2vh;
+    } /*clear*/
+
+    #slider {
+        /*-webkit-appearance: slider-vertical;*/
+        position: absolute;
+        top: 4.2vw;
+        left: 1.0vw;
+        width: 8.5vw;
+        height: 1.5vw;
+    } /*slider*/
+
+/*}}}pentool*/
+
+/*{{{helptool*/
+h3 {
+    color: yellow;
+} /*.h3*/
+
+.hiddenHelp {
+    position:fixed;
+    visibility: hidden;
+    border: 0px;
+    z-index: 4;
+    height: 80vh;
+    width: 40vw;
+    left: 30vw;
+    bottom: 0vh;
+} /*hiddenhelp*/
+
+.unhiddenHelp {
+    position:fixed;
+    visibility: visible;
+    border: 0px;
+    z-index: 4;
+    height: 80vh;
+    width: 40vw;
+    left: 30vw;
+    bottom: 0vh;
+} /*unhiddenHelp*/
+
+#helpdiv {
+  /*height: 100%;*/
+  position: fixed;
+  bottom: 0vh;
+  width : 100%;
+  background-color: black;
+  opacity: 0.8;
+} /*.helpdiv*/
+
+.helpkeys {
+    width: 3vw;
+} /*.helpkeys*/
+
+.helpfuncs {
+    width: 12vw;
+} /*.helpkeys*/
+
+#helptable {
+    width: 100%;
+    /*bottom: 0vh;*/
+    color: white;
+    font-size: 1.2em;
+} /*.helpheader*/
+
+/*}}}helptool*/

@@ -1,0 +1,59 @@
+
+.fillDiv {height: 45vh;}
+.fullPage {
+    position: fixed;
+    top: 0px; left: 0px;
+    height: 100vh; width: 100vw;
+    margin: auto;
+    overflow-x: hidden;
+} /*fullPage*/
+
+select  {
+    overflow: auto;
+    color: rgba(0,0,0,0.0);
+    background-color: rgba(0,0,0,0.0);
+    border: 0px solid black; 
+    overflow-y: hidden;
+    overflow-x: hidden;
+    border-radius: 4%;
+    z-index:0
+} /*select */
+
+select:focus {
+    color: white;
+    font-size: 1.1em;
+    background-color: rgba(0,0,0,0.8);
+    overflow-y: auto;
+    border: 3px solid black; 
+} /*select:focus*/
+
+.gridbox {
+    position: fixed;
+    top: 0px; left: 0px;
+    display:grid;
+    /*grid-template-columns: 1fr 1fr;*/
+    grid-template-columns: 2vw 1vw 95vw;
+    grid-template-rows: 5vh 90vh 5vh;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    justify-items: center;
+    z-index:1;
+} /*gridbox*/
+
+#foregroundX {
+    z-index:2;
+} /*foregroundX*/
+
+#backgroundX {
+    z-index:1;
+} /*backgroundX*/
+
+#selectMam { grid-row: 2;  grid-column: 3; 
+            align-self: center; 
+}/*selectMam*/
+#selectChoi  { grid-row: 2;  grid-column: 3; 
+            align-self: center;
+} /*selectChoi*/
+#selectLa { grid-row: 2;  grid-column: 3; 
+            align-self: center;
+} /*selectLa*/

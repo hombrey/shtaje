@@ -66,6 +66,9 @@ function evalKeyDown(evnt) {
     let keyPressed = evnt.keyCode;
     //console.log ("keyUp: ",keyPressed);
     switch (keyPressed) {
+    case 13 :  evnt.preventDefault();
+                activateChoice();
+                break; //return
        case 87  : if (!event.shiftKey) focusIframe(); 
                   else document.getElementById('toolSelect').focus();
                   break; //key: w
@@ -176,6 +179,18 @@ function scaleScreen() {
 
 // {{{ framer handling functions
 
+function activateChoice() {
+    if (document.getElementById("seqSelect") === document.activeElement) {
+        //console.log ("sequence");
+        focusSeqSource();
+    } //if (document.getElementById("seqSelect") === document.activeElement)
+
+    if (document.getElementById("toolSelect") === document.activeElement) {
+        //console.log ("tool");
+        window.open(document.getElementById("toolSelect").value,'_blank');
+    } //if (document.getElementById("seqSelect") === document.activeElement)
+
+} //function acivateChoice()
 function focusIframe() {
     var childWindow = document.getElementById("myIframe");
 

@@ -39,6 +39,8 @@ function evalKeyDown2(evnt) {
     case 13 :  evnt.preventDefault();
                 openNewTab(urlNow);
                 break; //return
+    case 83  : window.open ("./SongsHTML/0_Songs.html","_self"); break; //key: s
+    case 75  : window.open ("./srcHTML/Klyne/klyne.html","_self"); break; //key: k
     case 77 : if(!event.shiftKey) mamSelect.focus(); 
                 fgX.src=srcDir+"img/mam.webp";
                break; //key: m

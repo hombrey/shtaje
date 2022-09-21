@@ -22,11 +22,11 @@ echo "<body id=\"myBody\">" >> index.html
 echo "    <div id=\"srcdir\" style=\"display:none;\">$SOURCEDIR/</div>" >> index.html
 echo "    <div id=\"assetdir\" style=\"display:none\">./</div>" >> index.html
 echo "" >> index.html
-echo "    <img class=\"fullPage\" id=\"backgroundX\" src=\"$SOURCEDIR/img/BG0.webp\">" >> index.html
-echo "    <img class=\"fullPage\" id=\"foregroundX\" src=\"$SOURCEDIR/img/null.webp\">" >> index.html
 
 echo "     <div class=\"gridbox\">" >> index.html
 echo "" >> index.html
+echo "          <img class=\"fullPage\" id=\"backgroundX\" src=\"$SOURCEDIR/img/BG0.webp\">" >> index.html
+echo "          <img class=\"fullPage\" id=\"foregroundX\" src=\"$SOURCEDIR/img/null.webp\">" >> index.html
 echo "          <select id=\"selectMam\" name=\"\" onChange=\"selectFile(this.value)\" onclick=\"openNewTab(this.value)\" size=15>" >> index.html
 
 ls -d ./LI1*/*/*.html > /tmp/listUnsort.txt

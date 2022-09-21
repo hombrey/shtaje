@@ -10,6 +10,8 @@ let isWBdark=false;
 let IsColorPaneHidden=true;
 let sourceDir;
 let helpHandle;
+let isSeqBR=true;
+let selectHandle;
 // }}} variables
 
 // {{{ event listeners
@@ -72,6 +74,8 @@ function evalKeyDown(evnt) {
        case 87  : if (!event.shiftKey) focusIframe(); 
                   else document.getElementById('toolSelect').focus();
                   break; //key: w
+       case 80  : rePositionSeq(); 
+                  break; //key: p
        case 82  : window.location.reload(); 
                   break; //key: r
         case 112  : evnt.preventDefault(); helpHandle.className="unhiddenHelp"; break; //key: F1
@@ -137,10 +141,11 @@ async function initWin() {
     //END: create elements for drawing functionality
 
     //prevent a-z keyboard strokes from selecting another iframe  
-    let selectHandle = document.getElementById("seqSelect");
+    selectHandle = document.getElementById("seqSelect");
     selectHandle.setAttribute ('onkeydown','IgnoreAlpha(event);');
     //explicitly selecting iframe from the dropdown switches to that iframe and sends the focus to it
     selectHandle.setAttribute ('onClick','focusSeqSource();');
+    selectHandle.className = "seqBR";
 
     document.getElementById("seqSelect").focus(); //dummy select element that grabs the focus of the iframe
 
@@ -178,7 +183,15 @@ function scaleScreen() {
 //}}} initializations
 
 // {{{ framer handling functions
-
+function rePositionSeq() {
+    if (isSeqBR) {
+        selectHandle.className="seqTC";
+        isSeqBR=false;
+    } else {
+        selectHandle.className="seqBR";
+        isSeqBR=true;
+    } //if (isSeqBR)
+} //function rePositionSeq()
 function activateChoice() {
     if (document.getElementById("seqSelect") === document.activeElement) {
         //console.log ("sequence");

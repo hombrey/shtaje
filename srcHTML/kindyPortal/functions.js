@@ -34,7 +34,7 @@ async function initWin() {
 window.addEventListener("keydown", evalKeyDown2, false); //capture keypress on bubbling (false) phase
 function evalKeyDown2(evnt) {
     let keyPressed = evnt.keyCode;
-    console.log ("Pressed2:", keyPressed);
+    //console.log ("Pressed2:", keyPressed);
     switch (keyPressed) {
     case 13 :  evnt.preventDefault();
                 openNewTab(urlNow);
@@ -78,7 +78,6 @@ function openNewTab(urlvalue) {
 function selectFile(urlvalue) {
     urlNow = urlvalue;
 } //function openNewTab(urlvalue)
-
 
 //{{{helper functions
 function createHelpWindow() {

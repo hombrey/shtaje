@@ -88,6 +88,7 @@ function evalKeyDown(evnt) {
         case 190 : break; //key: <period> 
         case 188 : cycleSee(stepNow); break; //key: <comma> to show alt image
         case 32  : evnt.preventDefault(); playStep(stepNow) ;break; //key: <spacebar>
+        case 13  : evnt.preventDefault(); playStep(stepNow) ;break; //key: <return>
         case 112  : evnt.preventDefault(); helpHandle.className="unhiddenHelp"; break; //key: F1
 
         case 8 : evnt.preventDefault(); 

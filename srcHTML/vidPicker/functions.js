@@ -46,10 +46,12 @@ function evalKeyDown(evnt) {
     let rateIncValue = 0.2;
     //console.log ("keyUp: ",keyPressed);
     switch (keyPressed) {
-        case 32 :  evnt.preventDefault();
+        case 13 :  evnt.preventDefault();
+                   document.getElementById("filePicker").blur(); //momentarily remove focus to close select 
                    if (clickedVid.paused) {clickedVid.play(); clickedVid.setAttribute("controls","controls") ;}
                    else {clickedVid.pause();clickedVid.removeAttribute("controls");};
-                   break; //spaebar
+                   document.getElementById("filePicker").focus(); //return focus
+                   break; //return key
         case 219 : evnt.preventDefault();
                    playRate -= rateIncValue;
                    if (playRate < 0.1) playRate = 0.1;

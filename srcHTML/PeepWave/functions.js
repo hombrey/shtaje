@@ -76,6 +76,7 @@ function evalKeyDown(evnt) {
                   break; //key: right
        case 37  : changeHole(0.666); break; //key: left
        case 32  : evnt.preventDefault(); togglePlay() ;break; //key: <spacebar>
+       case 13  : evnt.preventDefault(); togglePlay() ;break; //key: <return>
        case 112  : evnt.preventDefault(); helpHandle.className="unhiddenHelp"; break; //key: F1
 
         case 8 : evnt.preventDefault(); 

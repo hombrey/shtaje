@@ -118,6 +118,7 @@ function evalDownCommon(evnt) {
                   break; //key: w
         case 112  : evnt.preventDefault(); helpHandle.className="unhiddenHelp"; break; //key: F1
 
+        case  13 : evnt.preventDefault(); playPrompt(); break;//key: <return>
         case 8 : evnt.preventDefault(); 
                     parent.postMessage("noDraw","*"); 
                     pentool("show");

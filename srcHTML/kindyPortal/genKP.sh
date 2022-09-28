@@ -3,9 +3,10 @@
 # extract the source directory from the command used to call this script
 SOURCEDIR=`echo "${0%/*}"`
 ASSETDIR='./'
+HOMEDIR=`echo ~`
 #truncate last character (i.e. "/")
 
-input="/tmp/list.txt"
+input="$HOMEDIR/tmp/list.txt"
 
 echo "<!DOCTYPE html>" > index.html
 echo "<html lang=\"en\">" >> index.html
@@ -29,8 +30,8 @@ echo "          <img class=\"fullPage\" id=\"backgroundX\" src=\"$SOURCEDIR/img/
 echo "          <img class=\"fullPage\" id=\"foregroundX\" src=\"$SOURCEDIR/img/null.webp\">" >> index.html
 echo "          <select id=\"selectMam\" name=\"\" onChange=\"selectFile(this.value)\" onclick=\"openNewTab(this.value)\" size=15>" >> index.html
 
-ls -d ./LI1*/*/*.html > /tmp/listUnsort.txt
-sort --version-sort /tmp/listUnsort.txt> $input
+ls -d ./LI1*/*/*.html > $HOMEDIR/tmp/listUnsort.txt
+sort --version-sort $HOMEDIR/tmp/listUnsort.txt> $input
 
     while IFS= read -r line
     do
@@ -43,8 +44,8 @@ echo "          </select>" >> index.html
 echo "" >> index.html
 echo "          <select id=\"selectChoi\" name=\"\" onChange=\"selectFile(this.value)\" onclick=\"openNewTab(this.value)\" size=15>" >> index.html
 
-ls -d ./LI2*/*/*.html > /tmp/listUnsort.txt
-sort --version-sort /tmp/listUnsort.txt> $input
+ls -d ./LI2*/*/*.html > $HOMEDIR/tmp/listUnsort.txt
+sort --version-sort $HOMEDIR/tmp/listUnsort.txt> $input
 
     while IFS= read -r line
     do
@@ -57,8 +58,8 @@ echo "          </select>" >> index.html
 echo "" >> index.html
 echo "          <select id=\"selectLa\" name=\"\" onChange=\"selectFile(this.value)\" onclick=\"openNewTab(this.value)\" size=15>" >> index.html
 
-ls -d ./LI3*/*/*.html > /tmp/listUnsort.txt
-sort --version-sort /tmp/listUnsort.txt> $input
+ls -d ./LI3*/*/*.html > $HOMEDIR/tmp/listUnsort.txt
+sort --version-sort $HOMEDIR/tmp/listUnsort.txt> $input
 
     while IFS= read -r line
     do

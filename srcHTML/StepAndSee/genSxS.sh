@@ -2,6 +2,7 @@
 
 # extract the source directory from the command used to call this script
 SOURCEDIR=`echo "${0%/*}"`
+HOMEDIR=`echo ~`
 #truncate last character (i.e. "/")
 
 
@@ -26,8 +27,8 @@ echo "    <select class=\"selectBox\" id=\"dummy\"><option id=\"optionText\">Ste
 echo "    <script src=\"$SOURCEDIR/functions.js\"></script> " >> x_StepSee.html
 
 # look for mats and attach them to the html file
-ls ./3_mat/| sort -n> /tmp/list.txt
-input="/tmp/list.txt"
+ls ./3_mat/| sort -n> $HOMEDIR/tmp/list.txt
+input="$HOMEDIR/tmp/list.txt"
 arrayIndex=1;
 
 echo "    <script> " >> x_StepSee.html
@@ -51,8 +52,8 @@ echo "      } // function placeMats()" >> x_StepSee.html
 echo "    </script> " >> x_StepSee.html
 
 #look for tails and prompt for selection
-ls $SOURCEDIR/tails | sort -n > /tmp/list.txt
-filelist="/tmp/list.txt"
+ls $SOURCEDIR/tails | sort -n > $HOMEDIR/tmp/list.txt
+filelist="$HOMEDIR/tmp/list.txt"
 
 echo $SOURCEDIR
 tailindex=1;

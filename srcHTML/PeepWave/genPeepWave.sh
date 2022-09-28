@@ -2,6 +2,7 @@
 
 # extract the source directory from the command used to call this script
 SOURCEDIR=`echo "${0%/*}"`
+HOMEDIR=`echo ~`
 
 echo "<!DOCTYPE html>" > xPeepWave.html
 echo "<html lang=\"en\">" >> xPeepWave.html
@@ -25,8 +26,8 @@ echo "</body> " >> xPeepWave.html
 echo "    <script> " >> xPeepWave.html
 echo "      function initArrays() {" >> xPeepWave.html
 
-ls ./wav| sort -n> /tmp/list.txt
-input="/tmp/list.txt"
+ls ./wav| sort -n> $HOMEDIR/tmp/list.txt
+input="$HOMEDIR/tmp/list.txt"
 arrayIndex=1;
 
 echo "          wavSet = [new sound (srcDir+\"wav/pick.mp3\")," >> xPeepWave.html
@@ -41,8 +42,8 @@ done < "$input"
 echo "          new sound (srcDir+\"wav/pick.mp3\")];" >> xPeepWave.html
 
 
-ls | sort -n> /tmp/list.txt
-input="/tmp/list.txt"
+ls | sort -n> $HOMEDIR/tmp/list.txt
+input="$HOMEDIR/tmp/list.txt"
 arrayIndex=1;
 
 echo "          picSet = [ {src: \"\", wav: 0}," >> xPeepWave.html
@@ -60,7 +61,7 @@ echo "      } // function initArrays()" >> xPeepWave.html
 echo "    </script> " >> xPeepWave.html
 echo "</html> " >> xPeepWave.html
 
-rm /tmp/list.txt
+rm $HOMEDIR/tmp/list.txt
 
 # creete directories used by this iframe. Ignore errors if directories already exist
 mkdir alt || true

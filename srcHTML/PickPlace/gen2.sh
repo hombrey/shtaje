@@ -2,6 +2,7 @@
 
 # extract the source directory from the command used to call this script
 SOURCEDIR=`echo "${0%/*}"`
+HOMEDIR=`echo ~`
 #truncate last character (i.e. "/")
 
 
@@ -23,8 +24,8 @@ echo "    <img class=\"fullPage\" id=\"backgroundX\" src=\"$SOURCEDIR/img/BG0.pn
 echo "    <select class=\"selectBox\" id=\"dummy\"><option>PickAndPlace</option></select>" >> x_Pick.html
 echo "    <script src=\"$SOURCEDIR/func2.js\"></script> " >> x_Pick.html
 
-ls $SOURCEDIR/tail2 | sort -n > /tmp/list.txt
-filelist="/tmp/list.txt"
+ls $SOURCEDIR/tail2 | sort -n > $HOMEDIR/tmp/list.txt
+filelist="$HOMEDIR/tmp/list.txt"
 
 echo $SOURCEDIR
 tailindex=1;

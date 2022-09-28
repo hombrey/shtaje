@@ -4,6 +4,7 @@
 SOURCEDIR=`echo "${0%/*}"`
 SOURCEROOT=`echo "${0%/*/*}"`
 SOURCEPREROOT=`echo "${0%/*/*/*}"`
+HOMEDIR=`echo ~`
 LESSONDIR=`pwd`
 
 echo "    <!--{{{head-->" > 0_FrameX.html
@@ -54,8 +55,8 @@ echo "        <option value=\"$SOURCEROOT/Klyne/klyne.html\">9_classMgt</option>
 echo "" >> 0_FrameX.html
 
 #list html files in lesson plan root directory
-ls -d *.html> /tmp/list.txt
-input="/tmp/list.txt"
+ls -d *.html> $HOMEDIR/tmp/list.txt
+input="$HOMEDIR/tmp/list.txt"
 arrayIndex=1;
 
 while IFS= read -r line
@@ -68,8 +69,8 @@ do
 done < "$input"
 
 #list html files tucked in a subdirectory
-ls -d ./*/*.html> /tmp/list.txt
-input="/tmp/list.txt"
+ls -d ./*/*.html> $HOMEDIR/tmp/list.txt
+input="$HOMEDIR/tmp/list.txt"
 arrayIndex=1;
 
 while IFS= read -r line

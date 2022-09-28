@@ -3,6 +3,7 @@
 # extract the source directory from the command used to call this script
 SOURCEDIR=`echo "${0%/*}"`
 SOURCEROOT=`echo "${0%/*/*}"`
+HOMEDIR=`echo ~`
 LESSONDIR=`pwd`
 
 echo "    <!--{{{head-->" > 0_FrameX.html
@@ -42,9 +43,9 @@ echo "        <option value=\"$SOURCEROOT/startpage/index.html\">0_startPage</op
 echo "" >> 0_FrameX.html
 
 #list html files in lesson plan root directory
-ls -d *.html> /tmp/list.txt
+ls -d *.html> $HOMEDIR/tmp/list.txt
 
-input="/tmp/list.txt"
+input="$HOMEDIR/tmp/list.txt"
 arrayIndex=1;
 
 while IFS= read -r line
@@ -57,12 +58,12 @@ do
 done < "$input"
 
 #list html files tucked in a subdirectory
-ls -d ./*/*.html> /tmp/listUnsort.txt
+ls -d ./*/*.html> $HOMEDIR/tmp/listUnsort.txt
 
 #this makes sure that the time tags are in order
-sort --version-sort /tmp/listUnsort.txt> /tmp/list.txt
+sort --version-sort $HOMEDIR/tmp/listUnsort.txt> $HOMEDIR/tmp/list.txt
 
-input="/tmp/list.txt"
+input="$HOMEDIR/tmp/list.txt"
 arrayIndex=1;
 
 while IFS= read -r line

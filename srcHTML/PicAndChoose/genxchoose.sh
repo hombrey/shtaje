@@ -1,16 +1,18 @@
 #!/bin/bash
-ls |sort -n > /tmp/rawlist.txt
+
+HOMEDIR=`echo ~`
+ls |sort -n > $HOMEDIR/tmp/rawlist.txt
 
 read -p "shuffle? (y/n) " isShuffled
 
 if [[ $isShuffled == "y" ]]; then
         #mix up the order of the files
-        shuf /tmp/rawlist.txt > /tmp/list.txt
+        shuf $HOMEDIR/tmp/rawlist.txt > $HOMEDIR/tmp/list.txt
 else
-        cp /tmp/rawlist.txt /tmp/list.txt
+        cp $HOMEDIR/tmp/rawlist.txt $HOMEDIR/tmp/list.txt
 fi
 
-input="/tmp/list.txt"
+input="$HOMEDIR/tmp/list.txt"
 
 # extract the source directory from the command used to call this script
 SOURCEDIR=`echo "${0%/*}"`
@@ -70,6 +72,6 @@ echo "    </script> " >> x_choose.html
 echo "</body> " >> x_choose.html
 echo "</html> " >> x_choose.html
 
-rm /tmp/list.txt
-rm /tmp/rawlist.txt
+rm $HOMEDIR/tmp/list.txt
+rm $HOMEDIR/tmp/rawlist.txt
 cp -nr $SOURCEDIR/choices . # n option should prevent from overwriting

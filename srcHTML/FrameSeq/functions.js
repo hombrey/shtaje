@@ -11,6 +11,7 @@ let IsColorPaneHidden=true;
 let sourceDir;
 let helpHandle;
 let isSeqBR=true;
+//let isPopFrameShown=false;
 let selectHandle;
 // }}} variables
 
@@ -39,8 +40,13 @@ function evalMessage (evnt) {
     //console.log ("message received");
 
     switch (data) {
+      case "hideKlyne" : popFrame("hide");
+                        document.getElementById('seqSelect').focus(); 
+                        initDrawCanvas();
+                        break;
       case "FocusSeq" : document.getElementById('seqSelect').focus(); 
                         initDrawCanvas();
+                        popFrame("hide");
                         break;
       case "FocusTool": document.getElementById('toolSelect').focus(); 
                         initDrawCanvas();
@@ -71,6 +77,8 @@ function evalKeyDown(evnt) {
     case 13 :  evnt.preventDefault();
                 activateChoice();
                 break; //return
+       case 75  : if (!event.shiftKey) popFrame("show"); 
+                  break; //key: k
        case 87  : if (!event.shiftKey) focusIframe(); 
                   else document.getElementById('toolSelect').focus();
                   break; //key: w
@@ -162,14 +170,14 @@ async function initWin() {
 
     initDrawCanvas();
 
-    //extract sourceDir from location of the background iaage.
+    //extract sourceDir from location of the background image.
     let bgX = document.getElementById('backgroundX');
     let extString = bgX.src;
-    //if (extString.includes ("background.jpg") ) sourceDir = extString.replace ("background.jpg","");
-    //if (extString.includes ("backgroundAP.jpg") ) sourceDir = extString.replace ("backgroundAP.jpg","");
     sourceDir= extString.split('/').slice(0, -1).join('/')+'/';  // remove last filename part of path
+    shtajeDir= extString.split('/').slice(0, -2).join('/')+'/';  // location of the source code of all shtaje types
 
     createHelpWindow();
+    attachKlynetoPopFrame();
 
 } //function initWin()
 
@@ -183,6 +191,21 @@ function scaleScreen() {
 //}}} initializations
 
 // {{{ framer handling functions
+function popFrame(action) {
+    var childWindow = document.getElementById("altIframe");
+
+    if (action == "hide") {
+        document.getElementById('altIframe').className="popframe";
+        //isPopFrameShown=false;
+    } // if action = "hide" 
+
+    if (action == "show") {
+        document.getElementById('altIframe').className="popframeshow";
+        //isPopFrameShown=true;
+        childWindow.contentWindow.postMessage("FocusAltIframe","*"); 
+    } // if action == "show"
+
+} //function popFrame(action)
 function rePositionSeq() {
     if (isSeqBR) {
         selectHandle.className="seqTC";
@@ -424,6 +447,15 @@ function Clear() {
 // }}} draw functions
 
 //{{{helper functions
+function attachKlynetoPopFrame() {
+
+    const klynePop = document.createElement('iframe');
+    klynePop.setAttribute('id','altIframe');
+    klynePop.setAttribute('class','popframe ');
+    klynePop.setAttribute('src',shtajeDir+'Klyne/klyne.html');
+    document.body.appendChild(klynePop);
+
+} //function attachKlynetoPopFrame()
 function createHelpWindow() {
     helpHandle = document.createElement('iframe');
     helpHandle.setAttribute('id','myHelpFrame');

@@ -117,6 +117,24 @@ select:focus {
     width: 99.5vw;
 } /*subframe*/
 
+.popframe {
+    z-index: -1;
+    position: fixed;
+    top: 0.1vh;
+    left: 0.1vw;
+    height: 99.5vh;
+    width: 99.5vw;
+} /*popframe*/
+
+.popframeshow {
+    z-index: 2;
+    position: fixed;
+    top: 0.1vh;
+    left: 0.1vw;
+    height: 99.5vh;
+    width: 99.5vw;
+} /*subframeshow*/
+
 /*}}}class*/
 
 /*{{{id selector*/

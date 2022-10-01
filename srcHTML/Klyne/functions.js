@@ -23,6 +23,7 @@ function evalKey(evnt) {
     //console.log ("Pressed: ",keyPressed);
 
     switch (keyPressed) {
+       case 75  : if(!event.shiftKey) parent.postMessage("hideKlyne","*");
        case 87  : if(!event.shiftKey) parent.postMessage("FocusSeq","*");
                   else parent.postMessage("FocusTool","*"); 
                   break; //key: w
@@ -44,6 +45,11 @@ function evalMessage (evnt) {
     //console.log ("message received");
 
     if (data == "FocusIframe") {
+        //console.log("focusDummy");
+        document.getElementById('dummy').focus();
+    }
+
+    if (data == "FocusAltIframe") {
         //console.log("focusDummy");
         document.getElementById('dummy').focus();
     }

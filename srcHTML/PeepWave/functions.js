@@ -234,8 +234,9 @@ function showAlt() {
 } //function showAlt()
 
 function nextScene(chosenIndx) {
-    //stop associated audio whenever the picture changes. Do this only if ./wav directory is populated
-    if (wavSet.length>2) wavSet[picSet[imgIndex].wav].stop(); 
+    
+    //stop associated audio whenever the picture changes. Do this only if an audio file is associated with incumbent scene
+    if (isWavDocSet) wavDoc.pause(); 
 
     hole = 75;
     ctx2D.fillRect (0,0, canvas.width, canvas.height);

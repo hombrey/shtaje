@@ -71,6 +71,7 @@ function evalKeyDown(evnt) {
         case 51 : selectToken("pick",3); break; //key: 3
         case 52 : selectToken("pick",4); break; //key: 4
         case 53 : selectToken("pick",5); break; //key: 5
+        case 54 : selectToken("pick",6); break; //key: 6
         //case 39 : stepToken(tokenNow,1); break; //key: right
         //case 37 : stepToken(tokenNow,-1); break; //key: left
         //case 38 : selectToken("next",-1); break; //key: <up>

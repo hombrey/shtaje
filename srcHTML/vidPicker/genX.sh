@@ -34,7 +34,7 @@ read -p "select style: " selectedStyle
 if [[ $selectedStyle == "h" ]]; then
     output="x_horiz.html"
     cssType="horizstyle.css"
-    if [ $vidIndex .ge 16 ]; then
+    if [ $vidIndex -ge 16 ]; then
         listSize="16"
     else
         listSize=$vidIndex;

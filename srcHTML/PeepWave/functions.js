@@ -74,6 +74,7 @@ function evalKeyDown(evnt) {
        case 39  : if(!event.shiftKey) changeHole(1.5);
                   else changeHole (5.0625);
                   break; //key: right
+       case 83  : skipRandom(); break; //key: s
        case 37  : changeHole(0.666); break; //key: left
        case 32  : evnt.preventDefault(); togglePlay() ;break; //key: <spacebar>
        case 13  : evnt.preventDefault(); togglePlay() ;break; //key: <return>
@@ -287,7 +288,7 @@ async function skipRandom() {
 
 } //async function skipRandom()
 
-function togglePlay() {
+async function togglePlay() {
 
     if (!isWavDocSet) {
         //use auto-generated wavSet array if there is a 1:1 match between images and mp3
@@ -301,6 +302,8 @@ function togglePlay() {
         } // else of wavSet.length check
 
         isWavDocSet = true;
+        await delay (100);
+        wavDoc.stop();
     } //if isWavDocSet
 
     if (!isPaused) {

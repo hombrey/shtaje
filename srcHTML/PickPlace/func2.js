@@ -257,6 +257,7 @@ function followMouse() { //activated by spacebar
 } //function followMouse()
 
 function playPrompt() {
+    pieces[pickedNum-1].prompt.stop();
     pieces[pickedNum-1].prompt.start();
 } //function playPrompt()
 function toggleHide() {

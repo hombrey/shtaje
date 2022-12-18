@@ -288,7 +288,7 @@ async function skipRandom() {
 
 } //async function skipRandom()
 
-async function togglePlay() {
+function togglePlay() {
 
     if (!isWavDocSet) {
         //use auto-generated wavSet array if there is a 1:1 match between images and mp3
@@ -302,7 +302,6 @@ async function togglePlay() {
         } // else of wavSet.length check
 
         isWavDocSet = true;
-        await delay (100);
         wavDoc.stop();
     } //if isWavDocSet
 
@@ -315,6 +314,7 @@ async function togglePlay() {
     } else {
         pauseIndicator.style.display = "block";
         pauseIndicator.style.backgroundColor = "green";
+        wavDoc.pause(); 
         wavDoc.play(); 
         isPaused = false;
     } // if (isPaused)

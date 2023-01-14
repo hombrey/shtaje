@@ -70,14 +70,18 @@ function evalKeyDown(evnt) {
        case 40  : nextScene(imgIndex+1); break; //key: <down>
        case 83  : skipRandom(); break; //key: s
        case 190 : toggleCanvas(); break; //key: <period> to show/hide pattern
-       case 188 : showAlt(); break; //key: <comma> to show alt image
+       case 188 : if(!event.shiftKey) showAlt(1); 
+                   else showAlt(0);
+                    break; //key: <comma> to show alt image
        case 39  : if(!event.shiftKey) changeHole(1.5);
                   else changeHole (5.0625);
                   break; //key: right
        case 83  : skipRandom(); break; //key: s
        case 37  : changeHole(0.666); break; //key: left
-       case 32  : evnt.preventDefault(); togglePlay() ;break; //key: <spacebar>
-       case 13  : evnt.preventDefault(); togglePlay() ;break; //key: <return>
+       case 32  : evnt.preventDefault(); togglePlay(0) ;break; //key: <spacebar>
+       case 13  : if (!event.shiftKey) {evnt.preventDefault(); togglePlay(0);}
+                    else {evnt.preventDefault(); togglePlay(1); console.log("shift");}
+                    break; //key: <return>
        case 112  : evnt.preventDefault(); helpHandle.className="unhiddenHelp"; break; //key: F1
 
         case 8 : evnt.preventDefault(); 
@@ -225,12 +229,23 @@ function toggleCanvas() {
    pickSound.start();
 } //function toggleCanvass
 
-function showAlt() {
-    let imgSrc =(assetDir+"alt/"+picSet[imgIndex].src);
+function showAlt(altMode) {
+    let imgSrc;
+
+    if (altMode == 1) {
+        imgSrc =(assetDir+"alt/"+picSet[imgIndex].src);
+        tingSound.start();
+    } //if (altMode == 1)
+
+    if (altMode == 0) {
+        imgSrc =(assetDir+picSet[imgIndex].src);
+        pickSound.start();
+    } //if (altMode == 0)
+
     bgX.src = imgSrc;
 
-
-        tingSound.start();
+    if (isWavDocSet) wavDoc.stop(); 
+    isWavDocSet=false;
 
 } //function showAlt()
 
@@ -288,17 +303,23 @@ async function skipRandom() {
 
 } //async function skipRandom()
 
-function togglePlay() {
+function togglePlay(altWav) {
 
     if (!isWavDocSet) {
+        let imgBaseName = picSet[imgIndex].src.split('.').slice(0, -1).join();  // extract base name of the current image
+
         //use auto-generated wavSet array if there is a 1:1 match between images and mp3
         if (wavSet.length == picSet.length)
             //wavDoc=wavSet[picSet[imgIndex].wav];
-            wavDoc=wavSet[imgIndex];
+            if (altWav == 0) wavDoc=wavSet[imgIndex];
+            if (altWav == 1) {
+                wavDoc.sound.src="./altwav/"+imgBaseName+".mp3";
+                console.log ("altWav");
+            } //altWav == 1
         else {
         //try to load audio file with the same name as the image 
-            let imgBaseName = picSet[imgIndex].src.split('.').slice(0, -1).join();  // extract base name of the current image
-            wavDoc.sound.src="./wav/"+imgBaseName+".mp3";
+            if (altWav == 0) wavDoc.sound.src="./wav/"+imgBaseName+".mp3";
+            if (altWav == 1) wavDoc.sound.src="./altwav/"+imgBaseName+".mp3";
         } // else of wavSet.length check
 
         isWavDocSet = true;

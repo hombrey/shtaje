@@ -324,7 +324,7 @@ function showOSD(rate) {
         vidOSD.textContent = rate + "X";
     } else {
         vidOSD = document.createElement("DIV");
-        vidOSD.style.cssText = "position:fixed;z-index:999999999;right:5px;bottom:5px;margin:0;padding:5px;width:auto;height:auto;font:bold 10pt/normal monospace;background:#444;color:#fff";
+        vidOSD.style.cssText = "position:fixed;z-index:999999999;right:5vw;bottom:10vh;margin:0;padding:5px;width:auto;height:auto;font:bold 15pt/normal monospace;background:#444;color:#fff; opacity: 0.8";
         vidOSD.textContent = rate + "X";
         document.body.appendChild(vidOSD);
     } // if (vidOSD)

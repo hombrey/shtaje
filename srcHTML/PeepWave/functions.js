@@ -80,7 +80,7 @@ function evalKeyDown(evnt) {
        case 37  : changeHole(0.666); break; //key: left
        case 32  : evnt.preventDefault(); togglePlay(0) ;break; //key: <spacebar>
        case 13  : if (!event.shiftKey) {evnt.preventDefault(); togglePlay(0);}
-                    else {evnt.preventDefault(); togglePlay(1); console.log("shift");}
+                    else {evnt.preventDefault(); togglePlay(1);}
                     break; //key: <return>
        case 112  : evnt.preventDefault(); helpHandle.className="unhiddenHelp"; break; //key: F1
 
@@ -314,7 +314,6 @@ function togglePlay(altWav) {
             if (altWav == 0) wavDoc=wavSet[imgIndex];
             if (altWav == 1) {
                 wavDoc.sound.src="./altwav/"+imgBaseName+".mp3";
-                console.log ("altWav");
             } //altWav == 1
         else {
         //try to load audio file with the same name as the image 

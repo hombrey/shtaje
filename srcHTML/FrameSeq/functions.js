@@ -78,6 +78,7 @@ function evalKeyDown(evnt) {
                 activateChoice();
                 break; //return
        case 75  : if (!event.shiftKey) popFrame("show"); 
+                  else window.open("../../index.html","_self");
                   break; //key: k
        case 87  : if (!event.shiftKey) focusIframe(); 
                   else document.getElementById('toolSelect').focus();

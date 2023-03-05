@@ -60,3 +60,6 @@ select:focus {
 #selectLa { grid-row: 2;  grid-column: 3; 
             align-self: center;
 } /*selectLa*/
+#selectOthers { grid-row: 2;  grid-column: 3; 
+            align-self: center;
+} /*selectOthers*/

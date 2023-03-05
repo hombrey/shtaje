@@ -69,8 +69,22 @@ sort --version-sort $HOMEDIR/tmp/listUnsort.txt> $input
 
 echo "          </select>" >> index.html
 
+echo "" >> index.html
+echo "          <select id=\"selectOthers\" name=\"\" onChange=\"selectFile(this.value)\" onclick=\"openNewTab(this.value)\" size=15>" >> index.html
+
+ls -d ./LI4*/*/*.html > $HOMEDIR/tmp/listUnsort.txt
+sort --version-sort $HOMEDIR/tmp/listUnsort.txt> $input
+
+    while IFS= read -r line
+    do
+        truncLine=${line#*/*Others/}
+        echo "          <option value=\"$line\">$truncLine</option>" >> index.html
+    done < "$input"
+
+echo "          </select>" >> index.html
 
 echo "     </div>  <!-- gridbox --> " >> index.html
+
 echo "</body> " >> index.html
 
 echo "</html>" >> index.html

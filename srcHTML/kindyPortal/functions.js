@@ -25,6 +25,7 @@ async function initWin() {
     mamSelect = document.getElementById("selectMam");
     choiSelect = document.getElementById("selectChoi");
     laSelect = document.getElementById("selectLa");
+    othersSelect = document.getElementById("selectOthers");
     fgX = document.getElementById("foregroundX");
 
     mamSelect.focus();
@@ -50,6 +51,9 @@ function evalKeyDown2(evnt) {
     case 76 : if(!event.shiftKey) laSelect.focus(); 
                fgX.src=srcDir+"img/la.webp";
              break; //key: l
+    case 79 : if(!event.shiftKey) othersSelect.focus(); 
+               fgX.src=srcDir+"img/others.webp";
+             break; //key: o
     case 87  : if(!event.shiftKey) parent.postMessage("FocusSeq","*");
                 else parent.postMessage("FocusTool","*"); 
                 break; //key: w

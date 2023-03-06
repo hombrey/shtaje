@@ -27,6 +27,7 @@ let helpHandle;
 let isMute=true;
 let keepLooping=false;
 let currAltMode=0;
+let altWavCount
 //}}}variable declarations
 
 //{{{event listeners
@@ -79,8 +80,8 @@ function evalKeyDown(evnt) {
                   break; //key: right
        case 83  : skipRandom(); break; //key: s
        case 37  : changeHole(0.666); break; //key: left
-       case 32  : evnt.preventDefault(); togglePlay(0) ;break; //key: <spacebar>
-       case 13  : evnt.preventDefault(); togglePlay(0); break; //key: <return>
+       case 32  : evnt.preventDefault(); togglePlay(currAltMode) ;break; //key: <spacebar>
+       case 13  : evnt.preventDefault(); togglePlay(currAltMode); break; //key: <return>
        case 112  : evnt.preventDefault(); helpHandle.className="unhiddenHelp"; break; //key: F1
 
         case 8 : evnt.preventDefault(); 
@@ -128,6 +129,15 @@ async function initWin() {
     //Get location of lesson assets
     assetDir = document.getElementById("assetdir").innerHTML;
     
+    //try to extract the altwavcount from generated HTML file
+    try {
+        altWavCount = document.getElementById("altwavcount").innerHTML;
+    } //try
+    catch(err) {
+        console.log ("altwav divID is not available");
+    }
+    //console.log ("altwavcount: ",altWavCount);
+
     //Get a reference to the canvas
     bgX = document.getElementById('backgroundX');
 
@@ -245,6 +255,8 @@ function showAlt(altMode) {
 
     if (isWavDocSet) wavDoc.stop(); 
     isWavDocSet=false;
+    //
+    //console.log("set currAltMode value to:",currAltMode);
     currAltMode=altMode;
 
 } //function showAlt()
@@ -269,6 +281,7 @@ function nextScene(chosenIndx) {
         if (isCanvasVisible) jingSound.start(); else pickSound.start();
     } //if (!muteScene)
 
+    //console.log("reset currAltMode value");
     isWavDocSet=false;
     currAltMode=0;
 
@@ -309,10 +322,20 @@ function togglePlay(wavSelect) {
     if (!isWavDocSet) {
         let imgBaseName = picSet[imgIndex].src.split('.').slice(0, -1).join();  // extract base name of the current image
 
+        //determine if altwav folder is fully populated. If it isn't use default value (i.e., 0)
+        //console.log ("pic Set num: ", picSet.length-2);
+        if (altWavCount != picSet.length-2)  {
+            wavSelect = 0;
+        } //if (altWavCount != picSet.length-2) 
+        else {
+            if (wavSelect == 0) {wavDoc.sound.src="./wav/"+imgBaseName+".mp3";}
+        } //else
+       
         //use auto-generated wavSet array if there is a 1:1 match between images and mp3
         if (wavSet.length == picSet.length) {
-            //wavDoc=wavSet[picSet[imgIndex].wav];
-            if (wavSelect == 0) wavDoc=wavSet[imgIndex];
+            //console.log ("wavSet:",wavSet[imgIndex].sound.src);
+            //if (wavSelect == 0) wavDoc=wavSet[imgIndex];
+            if (wavSelect == 0) wavDoc.sound.src=wavSet[imgIndex].sound.src;
             if (wavSelect == 1) wavDoc.sound.src="./altwav/"+imgBaseName+".mp3";
         } else {
         //try to load audio file with the same name as the image 
@@ -320,6 +343,7 @@ function togglePlay(wavSelect) {
             if (wavSelect == 1) wavDoc.sound.src="./altwav/"+imgBaseName+".mp3";
         } // else of wavSet.length check
 
+        //console.log("update wav file source:",wavDoc.sound.src);
         isWavDocSet = true;
         wavDoc.stop();
     } //if isWavDocSet

@@ -55,9 +55,8 @@ function evalKeyUp(evnt) {
 function evalKeyDown(evnt) {
     let keyPressed = evnt.keyCode;
     //console.log ("keyUp: ",keyPressed);
-    let rateIncValue = 0.2;
     switch (keyPressed) {
-       case 87  : if(!event.shiftKey) parent.postMessage("FocusSeq","*");
+       case 87  : if(!evnt.shiftKey) parent.postMessage("FocusSeq","*");
                   else parent.postMessage("FocusTool","*"); 
                   break; //key: w
        case 49  : nextScene(1); break; //key: 1
@@ -72,10 +71,10 @@ function evalKeyDown(evnt) {
        case 40  : nextScene(imgIndex+1); break; //key: <down>
        case 83  : skipRandom(); break; //key: s
        case 190 : toggleCanvas(); break; //key: <period> to show/hide pattern
-       case 188 : if(!event.shiftKey) showAlt(1); 
+       case 188 : if(!evnt.shiftKey) showAlt(1); 
                    else showAlt(0);
                     break; //key: <comma> to show alt image
-       case 39  : if(!event.shiftKey) changeHole(1.5);
+       case 39  : if(!evnt.shiftKey) changeHole(1.5);
                   else changeHole (5.0625);
                   break; //key: right
        case 83  : skipRandom(); break; //key: s

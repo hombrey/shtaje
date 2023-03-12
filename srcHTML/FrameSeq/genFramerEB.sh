@@ -31,13 +31,7 @@ echo "<body>" >> 0_FrameX.html
 echo "    <!--{{{outerFrame-->" >> 0_FrameX.html
 echo " <img class=\"fullPage\" id=\"backgroundX\" src=\"$SOURCEDIR/background.jpg\">" >> 0_FrameX.html
 case $LESSONDIR in
-    *"LI1_Mam"*)
-		echo " <iframe class=\"subframe\" id=\"myIframe\" src=\"$SOURCEPREROOT/SongsHTML/A_hi/x_horiz.html\"></iframe>" >> 0_FrameX.html
-    ;;
-    *"LI2_Choi"*)
-		echo " <iframe class=\"subframe\" id=\"myIframe\" src=\"$SOURCEPREROOT/SongsHTML/A_hi/x_horiz.html\"></iframe>" >> 0_FrameX.html
-    ;;
-    *"LI3_La"*)
+    *"LI1_Mam"*| *"LI2_Choi"*| *"LI3_La"*)
 		echo " <iframe class=\"subframe\" id=\"myIframe\" src=\"$SOURCEPREROOT/SongsHTML/A_hi/x_horiz.html\"></iframe>" >> 0_FrameX.html
     ;;
 	*)

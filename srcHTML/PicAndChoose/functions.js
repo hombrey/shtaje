@@ -13,6 +13,7 @@ let isPicFullScreen=false;
 let angleImg=0;
 let isPenToolHidden=true;
 let helpHandle;
+let contentInfoHandle;
 let isMute=true;
 let keepLooping=false;
 //}}}variable declarations
@@ -44,6 +45,7 @@ function evalKeyUp(evnt) {
                  } //if shiftkeya; 
                  break; //key: <backspace>
         case 83: keepLooping=false; break;
+       case 73  : evnt.preventDefault(); contentInfoHandle.className="hiddenInfo"; break; //key: i
         case 112  : evnt.preventDefault(); helpHandle.className="hiddenHelp"; break; //key: F1
 
         default : return;
@@ -70,6 +72,7 @@ function evalKeyDown(evnt) {
                   break; //key: <down>
         case 70 :  if(event.ctrlKey) togglePicFullScreen(evnt); //if (event.ctrlKey)
                    break; // 'f'
+       case 73  : evnt.preventDefault(); contentInfoHandle.className="unhiddenInfo"; break; //key: i
         case 112  : evnt.preventDefault(); helpHandle.className="unhiddenHelp"; break; //key: F1
 
         case 8 : evnt.preventDefault(); 
@@ -150,6 +153,7 @@ async function initWin() {
     errSound = new sound(sourceDir+"wav/err.mp3");
     cardSound = new sound(sourceDir+"wav/card.mp3");
 
+	createInfoWindow();
     createHelpWindow();
     createPentool();
 
@@ -335,6 +339,17 @@ function drawColor(colorInt) {
 //}}} draw functions
 
 //{{{helper functions
+function createInfoWindow() {
+    contentInfoHandle = document.createElement('div');
+    contentInfoHandle.setAttribute('id','myInfoFrame');
+    contentInfoHandle.setAttribute('class','hiddenInfo');
+    contentInfoHandle.innerHTML="";
+	for (let pInx=0; pInx<=promptSet.length-2; pInx++) {
+		contentInfoHandle.innerHTML+=promptSet[pInx].txt+"<br/>";
+	} //for (let pInx=1; pInx<=picSet.length-2; pInx++)
+    document.body.appendChild(contentInfoHandle);
+} //function createInfoWindow
+
 function createHelpWindow() {
     helpHandle = document.createElement('iframe');
     helpHandle.setAttribute('id','myHelpFrame');

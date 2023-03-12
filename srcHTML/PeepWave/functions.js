@@ -24,6 +24,7 @@ let isPaused=true;
 let playRate = 1;
 let isPenToolHidden=true;
 let helpHandle;
+let contentInfoHandle;
 let isMute=true;
 let keepLooping=false;
 let currAltMode=0;
@@ -47,6 +48,7 @@ function evalKeyUp(evnt) {
                      pentool("hide");
                  } //if shiftkeya; 
                  break; //key: <backspace>
+		case 73  : evnt.preventDefault(); contentInfoHandle.className="hiddenInfo"; break; //key: i
         case 112  : evnt.preventDefault(); helpHandle.className="hiddenHelp"; break; //key: F1
         case 83: keepLooping=false; break;
         default : return;
@@ -54,7 +56,7 @@ function evalKeyUp(evnt) {
 }//evalKeyUp
 function evalKeyDown(evnt) {
     let keyPressed = evnt.keyCode;
-    //console.log ("keyUp: ",keyPressed);
+	//console.log ("keyUp: ",keyPressed);
     switch (keyPressed) {
        case 87  : if(!evnt.shiftKey) parent.postMessage("FocusSeq","*");
                   else parent.postMessage("FocusTool","*"); 
@@ -77,10 +79,14 @@ function evalKeyDown(evnt) {
        case 39  : if(!evnt.shiftKey) changeHole(1.5);
                   else changeHole (5.0625);
                   break; //key: right
-       case 83  : skipRandom(); break; //key: s
        case 37  : changeHole(0.666); break; //key: left
+       case 221 : if(!evnt.shiftKey) changeHole(1.5);
+                  else changeHole (5.0625);
+                  break; //key: ]
+       case 219 : changeHole(0.666); break; //key: [
        case 32  : evnt.preventDefault(); togglePlay(currAltMode) ;break; //key: <spacebar>
        case 13  : evnt.preventDefault(); togglePlay(currAltMode); break; //key: <return>
+       case 73  : evnt.preventDefault(); contentInfoHandle.className="unhiddenInfo"; break; //key: i
        case 112  : evnt.preventDefault(); helpHandle.className="unhiddenHelp"; break; //key: F1
 
         case 8 : evnt.preventDefault(); 
@@ -183,6 +189,7 @@ async function initWin() {
     picSet[0].wav = 0;
 
     createHelpWindow();
+	createInfoWindow();
     createPentool();
 
     pauseIndicator = document.getElementById('pauseIndicator');
@@ -440,6 +447,17 @@ function drawColor(colorInt) {
 //}}} draw functions
 
 //{{{helper functions
+function createInfoWindow() {
+    contentInfoHandle = document.createElement('div');
+    contentInfoHandle.setAttribute('id','myInfoFrame');
+    contentInfoHandle.setAttribute('class','hiddenInfo');
+    contentInfoHandle.innerHTML="";
+	for (let pInx=1; pInx<=picSet.length-2; pInx++) {
+		contentInfoHandle.innerHTML+=picSet[pInx].src+"<br/>";
+	} //for (let pInx=1; pInx<=picSet.length-2; pInx++)
+    document.body.appendChild(contentInfoHandle);
+} //function createInfoWindow
+
 function createHelpWindow() {
     helpHandle = document.createElement('iframe');
     helpHandle.setAttribute('id','myHelpFrame');

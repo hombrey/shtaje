@@ -242,3 +242,27 @@ h3 {
 } /*.helpheader*/
 
 /*}}}helptool*/
+/*{{{contentIntoTool*/
+
+#myInfoFrame {
+	position:fixed;
+	display:block;
+	border: 0px;
+	z-index: 4;
+	/*height: 80vh;*/
+	width: 40vw;
+	left: 30vw;
+	bottom: 5vh;
+	background-color: black;
+	color: white;
+	opacity: 0.8;
+	font-size: 2.2em;
+	text-align: center;
+} /*.myInfoFrame*/
+.unhiddenInfo {
+	visibility: visible;
+} /*.unhiddenIntfo*/
+.hiddenInfo {
+	visibility: hidden;
+} /*.hiddenIntfo*/
+/*}}}contentIntoTool*/

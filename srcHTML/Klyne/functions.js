@@ -123,7 +123,7 @@ function callKlyne() {
     if (!isMute) callSound.start();
     insertCss ("#guidemsg {display: none;}");
     insertCss (".spriteClass {display: block;}");
-    bgX.src = (sourceDir+"img/BG1.jpg");
+    bgX.src = (sourceDir+"img/BG1.webp");
     isCalled = true;
 } //function callKlyne()
 function spriteJump(jumpDirection) {
@@ -151,9 +151,9 @@ function spriteJump(jumpDirection) {
     insertCss ("#sprite {transform: translate("+movX[spriteNum-1]+"vw,"+movY[spriteNum-1]+"vh);}");
     
     setTimeout (function() {
-        sprite.src =sourceDir+"img/sprite"+spriteNum+".png"; 
+        sprite.src =sourceDir+"img/sprite"+spriteNum+".webp"; 
         if (spriteNum==5) {
-            bgX.src =sourceDir+"img/BG6.jpg"; 
+            bgX.src =sourceDir+"img/BG6.webp"; 
             winSound.play();
         }// if spriteNum == 5)
         if ( (spriteNum<5) && (jumpDirection=="up") ) settleSound.play();

@@ -77,7 +77,7 @@ sort --version-sort $HOMEDIR/tmp/listUnsort.txt> $input
 
     while IFS= read -r line
     do
-        truncLine=${line#*/*Others/}
+        truncLine=${line#*/*LI4_}
         echo "          <option value=\"$line\">$truncLine</option>" >> index.html
     done < "$input"
 

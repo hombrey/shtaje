@@ -46,9 +46,12 @@ done < "$input"
 echo "          new sound (srcDir+\"wav/pick.mp3\")];" >> xPeepWave.html
 
 
-ls | sort -n> $HOMEDIR/tmp/list.txt
+ls | sort -n> $HOMEDIR/tmp/listUnsort.txt
 input="$HOMEDIR/tmp/list.txt"
 arrayIndex=1;
+
+#this makes sure that the time tags are in order
+sort --version-sort $HOMEDIR/tmp/listUnsort.txt> $HOMEDIR/tmp/list.txt
 
 echo "          picSet = [ {src: \"\", wav: 0}," >> xPeepWave.html
 while IFS= read -r line

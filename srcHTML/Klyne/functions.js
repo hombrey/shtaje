@@ -15,7 +15,7 @@ let nTab;
 ;//}}}variable declarations
 
 //{{{event listeners
-window.onload = initWin();
+window.addEventListener("DOMContentLoaded", initWin);
 window.addEventListener("resize", initWin);
 window.addEventListener("keydown", evalKey, false); //capture keypress on bubbling (false) phase
 function evalKey(evnt) {
@@ -73,9 +73,8 @@ const checkElement = async selector => {
   return document.querySelector(selector); 
 }; //const checkElement = async selector
 
-async function initWin() {
+function initWin() {
     //Get a reference to the canvas
-    await delay (6);
     //checkElement('backgroundX').then((selector) => { console.log(selector); });
 
     bgX = document.getElementById('backgroundX');
@@ -92,6 +91,7 @@ async function initWin() {
     winSound = new sound(sourceDir+"wav/win.mp3");
     callSound = new sound(sourceDir+"wav/call.mp3");
 
+    window.removeEventListener("DOMContentLoadedl", initWin);
 } //function init()
 
 function resizeElements() {

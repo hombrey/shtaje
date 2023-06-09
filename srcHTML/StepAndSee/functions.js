@@ -34,7 +34,7 @@ let helpHandle;
 //}}}variable declarations
 
 //{{{event listeners
-window.onload = initWin();
+window.addEventListener("DOMContentLoaded", initWin);
 window.addEventListener("resize", scaleScreen);
 window.addEventListener("keydown", evalKeyDown, false); //capture keypress on bubbling (false) phase
 window.addEventListener("keyup", evalKeyUp, false); //capture keypress on bubbling (false) phase
@@ -127,11 +127,11 @@ const checkElement = async selector => {
 }; //const checkElement = async selector
 
 //make sure elements are loaded before proceeding
-async function initWin() {
+function initWin() {
 //document.getElementById('backgroundX').onload = async function () { //wait for element before loading
-    await delay (20); 
+    // await delay (20); 
     //check to see if element is loaded
-    checkElement('backgroundX').then((selector) => { console.log(selector); });
+    // checkElement('backgroundX').then((selector) => { console.log(selector); });
     
 
     //defined in HTML
@@ -143,7 +143,7 @@ async function initWin() {
     arrangeBoard();
    
     //wait for sceen to populate before scaling
-    await delay (25);
+    // await delay (25);
     scaleScreen();
 
     placeMats();

@@ -3,9 +3,9 @@
 ;//}}}variable declarations
 
 //{{{event listeners
-window.onload = initWin();
 window.addEventListener("resize", initWin);
 window.addEventListener("keydown", evalKeyDown, false); //capture keypress on bubbling (false) phase
+window.addEventListener("DOMContentLoaded", initWin);
 
 function evalKeyDown(evnt) {
     let keyPressed = evnt.keyCode;
@@ -21,17 +21,7 @@ function evalKeyDown(evnt) {
 //}}}event listeners
 
 //{{{window init
-//make sure elements are loaded before proceeding
-const checkElement = async selector => {
-  while ( document.querySelector(selector) === null) {
-    await new Promise( resolve =>  requestAnimationFrame(resolve) )
-  } //while ( document.querySelector(selector) === null)
-  return document.querySelector(selector); 
-}; //const checkElement = async selector
-
-async function initWin() {
-
-    await delay (6);
+function initWin() {
 
     window.addEventListener("keydown", evalKeyDown, false); //capture keypress on bubbling (false) phase
     

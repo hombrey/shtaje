@@ -32,7 +32,7 @@ let altWavCount
 //}}}variable declarations
 
 //{{{event listeners
-window.onload = initWin();
+window.addEventListener("DOMContentLoaded", initWin);
 window.addEventListener("resize", initWin);
 window.addEventListener("keydown", evalKeyDown, false); //capture keypress on bubbling (false) phase
 window.addEventListener("keyup", evalKeyUp, false); //capture keypress on bubbling (false) phase
@@ -122,14 +122,14 @@ const checkElement = async selector => {
   return document.querySelector(selector); 
 }; //const checkElement = async selector
 
-async function initWin() {
+function initWin() {
 
-    await delay (60);
+    // await delay (60);
     //check to see if element is loaded
-    checkElement('backgroundX').then((selector) => { console.log(selector); });
+    // checkElement('backgroundX').then((selector) => { console.log(selector); });
 
     //check to see if element is loaded
-    checkElement('can0').then((selector) => { console.log(selector); });
+    // checkElement('can0').then((selector) => { console.log(selector); });
     srcDir = document.getElementById("srcdir").innerHTML; 
     //Get location of lesson assets
     assetDir = document.getElementById("assetdir").innerHTML;

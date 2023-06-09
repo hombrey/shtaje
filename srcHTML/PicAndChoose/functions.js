@@ -28,8 +28,8 @@ class PromptString  {
 //}}}class declarations
 
 //{{{event listeners
-window.onload = initWin();
-window.addEventListener("resize", initWin);
+// window.onload = initWin();
+window.addEventListener("DOMContentLoaded", initWin);
 window.addEventListener("keydown", evalKeyDown, false); //capture keypress on bubbling (false) phase
 window.addEventListener("keyup", evalKeyUp, false); //capture keypress on bubbling (false) phase
 
@@ -108,11 +108,11 @@ const checkElement = async selector => {
 }; //const checkElement = async selector
 
 //make sure elements are loaded before proceeding
-async function initWin() {
+function initWin() {
 //document.getElementById('backgroundX').onload = async function () { //wait for element before loading
-    await delay (80); 
+    // await delay (80); 
     //check to see if element is loaded
-    checkElement('backgroundX').then((selector) => { console.log(selector); });
+    // checkElement('backgroundX').then((selector) => { console.log(selector); });
     //Get a reference to the canvas
     bgX = document.getElementById('backgroundX');
 
@@ -128,7 +128,7 @@ async function initWin() {
     scaleX = bgX.clientWidth/bgX.naturalWidth;
     scaleY = bgX.clientHeight/bgX.naturalHeight;
 
-    await delay (10); 
+    // await delay (10); 
 
     choices = [
             document.getElementById('choice1'),

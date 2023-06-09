@@ -20,11 +20,12 @@ let selectHandle;
 //canvasC.setAttribute("id","canvas");
 //document.body.appendChild(canvasC);
 
-window.onload = initWin();
+// window.onload = initWin();
 window.addEventListener("resize", scaleScreen);
 window.addEventListener('message', evalMessage);
 window.addEventListener("keydown", evalKeyDown, false); //capture keypress on bubbling (false) phase
 window.addEventListener("keyup", evalKeyUp, false); //capture keypress on bubbling (false) phase
+window.addEventListener("DOMContentLoaded", initWin);
 
 function evalKeyUp(evnt) {
     let keyReleased = evnt.keyCode;
@@ -121,11 +122,10 @@ const checkElement = async selector => {
   return document.querySelector(selector); 
 }; //const checkElement = async selector
 
-async function initWin() {
+function initWin() {
 
-    await delay (25);
     //check to see if element is loaded
-    checkElement('backgroundX').then((selector) => { console.log(selector); });
+    // checkElement('backgroundX').then((selector) => { console.log(selector); });
 
     //BEGIN: create HTML elements for drawing functionality
         canvas = document.createElement('canvas');
@@ -134,7 +134,7 @@ async function initWin() {
 
         createPentool();
 
-        await delay (15);
+        // await delay (15);
 
         //wait for elements to load before scaling
         scaleScreen();
@@ -180,6 +180,7 @@ async function initWin() {
     createHelpWindow();
     attachKlynetoPopFrame();
 
+    window.removeEventListener("DOMContentLoadedl", initWin);
 } //function initWin()
 
 function scaleScreen() {

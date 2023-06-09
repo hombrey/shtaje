@@ -18,7 +18,7 @@ let isPenToolHidden=true;
 ;//}}}variable declarations
 
 //{{{event listeners
-window.onload = initWin();
+window.addEventListener("DOMContentLoaded", initWin);
 window.addEventListener("keydown", evalKeyDown, false); //capture keypress on bubbling (false) phase
 window.addEventListener("keyup", evalKeyUp, false); //capture keypress on bubbling (false) phase
 
@@ -119,8 +119,7 @@ function evalMessage (evnt) {
 
 //{{{initializations
 
-async function initWin() {
-    await delay (20);
+function initWin() {
 
     //Get a reference to the canvas
     bgX = document.getElementById('backgroundX');
@@ -139,8 +138,6 @@ async function initWin() {
 
     createHelpWindow();
     createPentool();
-
-    await delay (3);
 
 } //function init()
 

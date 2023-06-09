@@ -14,8 +14,9 @@ let helpHandle;
 
 //{{{window init
 
-window.onload = initWin();
+// window.onload = initWin();
 window.addEventListener("resize", scaleScreen);
+window.addEventListener("DOMContentLoaded", initWin);
 
 //make sure elements are loaded before proceeding
 const checkElement = async selector => {
@@ -25,8 +26,8 @@ const checkElement = async selector => {
   return document.querySelector(selector); 
 }; //const checkElement = async selector
 
-async function initWin() {
-    await delay (50);
+function initWin() {
+    // await delay (50);
 
     window.addEventListener("keyup", evalKeyUp, false); //capture keypress on bubbling (false) phase
     window.addEventListener("keydown", evalKeyDown, false); //capture keypress on bubbling (false) phase
@@ -44,7 +45,7 @@ async function initWin() {
     
     placeLocations(); //define number of pieces and their unscaled positions here
 
-    await delay (100);
+    // await delay (100);
     scaleScreen();
 
     pickSound = new sound(sourceDir+"wav/pick.mp3");
@@ -53,6 +54,8 @@ async function initWin() {
 
      createHelpWindow();
      createPentool();
+
+    window.removeEventListener("DOMContentLoadedl", initWin);
 
 } //function init()
 

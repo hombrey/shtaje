@@ -5,18 +5,11 @@ let mamSelect,choiSelect,laSelect;
 let fgX;
 //}}}variable declarations
 
-//make sure elements are loaded before proceeding
-const checkElement = async selector => {
-  while ( document.querySelector(selector) === null) {
-    await new Promise( resolve =>  requestAnimationFrame(resolve) )
-  } //while ( document.querySelector(selector) === null)
-  return document.querySelector(selector); 
-}; //const checkElement = async selector
+// window.onload = initWin();
+window.addEventListener("DOMContentLoaded", initWin);
+function initWin() {
 
-window.onload = initWin();
-async function initWin() {
-
-    await delay (40);
+    // await delay (40);
 
     srcDir = document.getElementById("srcdir").innerHTML; 
     //Get location of lesson assets

@@ -9,11 +9,13 @@ window.addEventListener("DOMContentLoaded", initWin);
 
 function evalKeyDown(evnt) {
     let keyPressed = evnt.keyCode;
-    //console.log ("Pressed2:", keyPressed);
+    // console.log ("Pressed2:", keyPressed);
     switch (keyPressed) {
-       case 87  : if(!event.shiftKey) parent.postMessage("FocusSeq","*");
+       case 87  : if(!evnt.shiftKey) parent.postMessage("FocusSeq","*");
                   else parent.postMessage("FocusTool","*"); 
                   break; //key: w
+       case 220  : if(evnt.ctrlKey) location.reload();
+                  break; //key: \
         default : return;
     } //switch (keyPressed)
 } //evalKey(event)

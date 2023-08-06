@@ -120,8 +120,8 @@ function evalDownCommon(evnt) {
                   else parent.postMessage("FocusTool","*"); 
                   break; //key: w
         case 112  : evnt.preventDefault(); helpHandle.className="unhiddenHelp"; break; //key: F1
-
         case  13 : evnt.preventDefault(); playPrompt(); break;//key: <return>
+        case 220  : if(evnt.ctrlKey) placeLocations(); scaleScreen(); console.log("reset locations");break; //key: \
         case 8 : evnt.preventDefault(); 
                     parent.postMessage("noDraw","*"); 
                     pentool("show");

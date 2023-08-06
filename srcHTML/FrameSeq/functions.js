@@ -101,12 +101,12 @@ function drawKeys(evnt) {
        case 67  : Clear(); break; //key: c
        case 90  : Restore(); break; //key: z
        case 83  : toggleShowColors(); break; //key: s
-       case 49  : if(event.shiftKey) change_color_kb("black"); break; //key: shift 1
-       case 50  : if(event.shiftKey) change_color_kb("red"); break;//key: shift 2
-       case 51  : if(event.shiftKey) change_color_kb("yellow"); break;//key: shift 3
-       case 52  : if(event.shiftKey) change_color_kb("green"); break;//key: shift 4
-       case 53  : if(event.shiftKey) change_color_kb("blue"); break;//key: shift 5
-       case 54  : if(event.shiftKey) change_color_kb("white"); break;//key: shift 6
+       case 49  : if(evnt.shiftKey) change_color_kb("black"); break; //key: shift 1
+       case 50  : if(evnt.shiftKey) change_color_kb("red"); break;//key: shift 2
+       case 51  : if(evnt.shiftKey) change_color_kb("yellow"); break;//key: shift 3
+       case 52  : if(evnt.shiftKey) change_color_kb("green"); break;//key: shift 4
+       case 53  : if(evnt.shiftKey) change_color_kb("blue"); break;//key: shift 5
+       case 54  : if(evnt.shiftKey) change_color_kb("white"); break;//key: shift 6
         default : return;
     } //switch (keyPressed)
 } //drawKeys(event)

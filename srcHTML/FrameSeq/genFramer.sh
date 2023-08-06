@@ -6,11 +6,13 @@ SOURCEROOT=`echo "${0%/*/*}"`
 SOURCEPREROOT=`echo "${0%/*/*/*}"`
 HOMEDIR=`echo ~`
 LESSONDIR=`pwd`
+BASEDIR=$(basename $LESSONDIR)
 
 echo "    <!--{{{head-->" > 0_FrameX.html
 echo "<!DOCTYPE html>" >> 0_FrameX.html
 echo "<html lang=\"en\">" >> 0_FrameX.html
 echo "<head>" >> 0_FrameX.html
+echo "    <title>$BASEDIR</title> " >> 0_FrameX.html
 echo "    <script src=\"$SOURCEDIR/functions.js\"></script> " >> 0_FrameX.html
 echo "    <script type=\"text/javascript\">" >> 0_FrameX.html
 echo "        function setSeqSource() {" >> 0_FrameX.html
@@ -73,7 +75,7 @@ case $LESSONDIR in
 		echo "        <option value=\"$SOURCEROOT/Klyne/klyne.html\">9_classMgt</option> " >> 0_FrameX.html
 	;;
 	*)
-		echo "        <option value=\"$SOURCEROOT/startpage/index.html\">0_startPage</option> " >> 0_FrameX.html
+		echo "        <option value=\"$SOURCEROOT/startpage/index.html\">$BASEDIR</option> " >> 0_FrameX.html
 	;;
 esac
 echo "" >> 0_FrameX.html

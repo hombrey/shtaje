@@ -20,17 +20,22 @@ window.addEventListener("resize", initWin);
 window.addEventListener("keydown", evalKey, false); //capture keypress on bubbling (false) phase
 function evalKey(evnt) {
     let keyPressed = evnt.keyCode;
-    //console.log ("Pressed: ",keyPressed);
+    // console.log ("Pressed: ",keyPressed);
 
     switch (keyPressed) {
-       case 75  : if(!event.shiftKey) parent.postMessage("hideKlyne","*");
-       case 87  : if(!event.shiftKey) parent.postMessage("FocusSeq","*");
+       case 75  : if(!evnt.shiftKey) parent.postMessage("hideKlyne","*");
+       case 87  : if(!evnt.shiftKey) parent.postMessage("FocusSeq","*");
                   else parent.postMessage("FocusTool","*"); 
                   break; //key: w
        case 82  : window.location.reload(); 
                   break; //key: r
        case 48  : if (!isCalled)callKlyne();break; //key: 0
-       case 78  : if (!event.ctrlKey) duplNewTab();break; //key: n
+       case 49  : if (isCalled) spriteJump("1");break; //key: 1
+       case 50  : if (isCalled) spriteJump("2");break; //key: 2
+       case 51  : if (isCalled) spriteJump("3");break; //key: 3
+       case 52  : if (isCalled) spriteJump("4");break; //key: 4
+       case 53  : if (isCalled) spriteJump("5");break; //key: 5
+       case 78  : if (!evnt.ctrlKey) duplNewTab();break; //key: n
        case 37  : if (isCalled) spriteJump("down"); break; //key: right
        case 39  : if (isCalled) spriteJump("up"); break; //key: left
        default  : return;
@@ -128,6 +133,8 @@ function callKlyne() {
 } //function callKlyne()
 function spriteJump(jumpDirection) {
 
+		let beforeJump;
+
     //console.log(spriteNum);
     if (jumpDirection=="up") {
         jumpSound.start();
@@ -139,10 +146,15 @@ function spriteJump(jumpDirection) {
         fallSound.start();
         settleSound.stop();
         spriteNum--;
-        console.log("jump down");
+        // console.log("jump down");
         if (spriteNum==0) spriteNum=1;
     } //if (jumpDirection=="down)
-
+    if (jumpDirection=="1" || jumpDirection=="2"  || jumpDirection=="3" || jumpDirection=="4" || jumpDirection=="5" ) {
+				beforeJump = spriteNum;
+				spriteNum = Number(jumpDirection);
+				if  (beforeJump < spriteNum ) { jumpSound.start(); jumpDirection="up"; }
+				if  (beforeJump > spriteNum ) { fallSound.start(); settleSound.stop(); }
+		} //if jumpDirection=="1"
     //console.log("spriteNum: "+spriteNum);
 
     movX = [0, 1*15, 2*15+1 , 3*15+2, 4*15+3];

@@ -117,7 +117,17 @@ do
 done < "$input"
 
 echo "" >> 0_FrameX.html
-echo "        <option value=\"$SOURCEPREROOT/SongsHTML/Z_bye/x_horiz.html\">30_Bye</option>" >> 0_FrameX.html
+
+
+case $LESSONDIR in
+    *"LI1_Mam"*| *"LI2_Choi"*| *"LI3_La"*)
+		echo "        <option value=\"$SOURCEPREROOT/SongsHTML/Z_bye/x_horiz.html\">30_Bye</option>" >> 0_FrameX.html
+    ;;
+	*)
+		echo "" 
+	;;
+esac
+
 echo "   </select>" >> 0_FrameX.html
 echo "</body>" >> 0_FrameX.html
 echo "</html>" >> 0_FrameX.html

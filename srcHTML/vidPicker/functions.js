@@ -26,14 +26,14 @@ function evalKeyUp(evnt) {
     let keyReleased = evnt.keyCode;
     switch (keyReleased) {
 
-        case 8 : evnt.preventDefault();
+        case 113 : evnt.preventDefault();
                  if(!event.shiftKey) {
                      parent.postMessage("draw","*"); 
                      pentool("hide");
                  } else { parent.postMessage("noDraw","*"); 
                      pentool("hide");
                  } //if shiftkeya; 
-                 break; //key: <backspace>
+                 break; //key: <F2>
 
         case 112  : evnt.preventDefault(); helpHandle.className="hiddenHelp"; break; //key: F1
 
@@ -94,10 +94,10 @@ function evalKeyDown(evnt) {
                   break; //key: w
         case 112  : evnt.preventDefault(); helpHandle.className="unhiddenHelp"; break; //key: F1
 
-        case 8 : evnt.preventDefault(); 
+        case 113 : evnt.preventDefault(); 
                     parent.postMessage("noDraw","*"); 
                     pentool("show");
-                break; //key: <backspace>
+                break; //key: <F12>
 
         default : return;
     } //switch (keyPressed)

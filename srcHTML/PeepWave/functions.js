@@ -48,6 +48,14 @@ function evalKeyUp(evnt) {
                      pentool("hide");
                  } //if shiftkeya; 
                  break; //key: <backspace>
+        case 113 : evnt.preventDefault();
+                 if(!event.shiftKey) {
+                     parent.postMessage("draw","*"); 
+                     pentool("hide");
+                 } else { parent.postMessage("noDraw","*"); 
+                     pentool("hide");
+                 } //if shiftkeya; 
+                 break; //key: <F12>
 		case 73  : evnt.preventDefault(); contentInfoHandle.className="hiddenInfo"; break; //key: i
         case 112  : evnt.preventDefault(); helpHandle.className="hiddenHelp"; break; //key: F1
         case 83: keepLooping=false; break;
@@ -93,6 +101,10 @@ function evalKeyDown(evnt) {
                     parent.postMessage("noDraw","*"); 
                     pentool("show");
                 break; //key: <backspace>
+        case 113 : evnt.preventDefault(); 
+                    parent.postMessage("noDraw","*"); 
+                    pentool("show");
+                break; //key: <F12>
 
         default : return;
     } //switch (keyPressed)

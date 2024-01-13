@@ -41,7 +41,6 @@ select:focus {
 
 
 .vidNonMax {
-    z-index: 1;
     position: fixed;
     top: 8vh;
     left: 5vw;
@@ -51,7 +50,6 @@ select:focus {
 } /*vidNonMax*/
 
 .vidMax {
-    z-index: 1;
     position: fixed;
     top: 1vh;
     left: 1vw;

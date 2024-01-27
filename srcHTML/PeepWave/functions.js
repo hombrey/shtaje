@@ -305,8 +305,8 @@ function nextScene(chosenIndx) {
 
     //display image name and index
     let StatusText=imgIndex+"/"+(picSet.length-2);
-    if (imgIndex == 1) StatusText+=": PeepWave";
-        else StatusText+=": "+picSet[imgIndex].src;
+    // if (imgIndex == 1) StatusText+=": PeepWave"; else StatusText+=": "+picSet[imgIndex].src;
+    StatusText+=": "+picSet[imgIndex].src;
 
     document.getElementById('dummy').options[0].innerHTML=StatusText;
 } //function changeScene(sceneNum)

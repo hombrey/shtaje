@@ -16,7 +16,8 @@ let helpHandle;
 
 // window.onload = initWin();
 window.addEventListener("resize", scaleScreen);
-window.addEventListener("DOMContentLoaded", initWin);
+// window.addEventListener("DOMContentLoaded", initWin);
+window.addEventListener("DOMContentLoaded", setTimeout(initWin,900));
 
 //make sure elements are loaded before proceeding
 const checkElement = async selector => {

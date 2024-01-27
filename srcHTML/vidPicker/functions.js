@@ -15,6 +15,7 @@ let sourceDir;
 let helpHandle;
 let isPenToolHidden=true;
 
+var switchVidEvent;
 ;//}}}variable declarations
 
 //{{{event listeners
@@ -150,7 +151,9 @@ function switchVid(callID,callID2) {   // txt == content of form input
     let fullPath=directory+filePicked;
     //console.log("FileLocation: " + directory+filePicked);
     //console.log("FileLocation: " + fullPath);
-    clickedVid.setAttribute ('src',fullPath);
+    // clickedVid.setAttribute ('src',fullPath);
+		clearTimeout (switchVidEvent);
+    switchVidEvent = setTimeout ( () => {clickedVid.setAttribute ('src',fullPath);}, 400);
 
 }//function switchVid
 

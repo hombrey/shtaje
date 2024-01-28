@@ -15,13 +15,6 @@ echo "<head>" >> 0_F-X.html
 echo "    <title>$BASEDIR</title> " >> 0_F-X.html
 echo "    <script src=\"$SOURCEDIR/functions.js\"></script> " >> 0_F-X.html
 echo "    <script type=\"text/javascript\">" >> 0_F-X.html
-echo "        function setSeqSource() {" >> 0_F-X.html
-echo "            var theSelect = document.getElementById('seqSelect');" >> 0_F-X.html
-echo "            var theIframe = document.getElementById('myIframe');" >> 0_F-X.html
-echo "            var theUrl;" >> 0_F-X.html
-echo "            theUrl = theSelect.options[theSelect.selectedIndex].value;" >> 0_F-X.html
-echo "            theIframe.src = theUrl;" >> 0_F-X.html
-echo "        }" >> 0_F-X.html
 echo "        function setToolSource(urlvalue) {" >> 0_F-X.html
 echo "            window.open(urlvalue,'_blank');" >> 0_F-X.html
 echo "        }" >> 0_F-X.html

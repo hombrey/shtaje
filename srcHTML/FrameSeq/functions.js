@@ -13,6 +13,8 @@ let helpHandle;
 let isSeqBR=true;
 //let isPopFrameShown=false;
 let selectHandle;
+
+let setSeqEvent;
 // }}} variables
 
 // {{{ event listeners
@@ -238,18 +240,24 @@ function focusIframe() {
 
 } //function focusIframe()
 
-async function focusSeqSource() {
+function focusSeqSource() {
     var theSelect = document.getElementById('seqSelect');
-    var theIframe = document.getElementById('myIframe');
+    // var theIframe = document.getElementById('myIframe');
     var theUrl;
     theUrl = theSelect.options[theSelect.selectedIndex].value;
-    theIframe.src = theUrl;
-
-    await delay (100);
+    // theIframe.src = theUrl;
 
     focusIframe();
 }
 
+   const setSeqSource = () => {
+            var theSelect = document.getElementById('seqSelect');
+            var theIframe = document.getElementById('myIframe');
+            var theUrl;
+            theUrl = theSelect.options[theSelect.selectedIndex].value;
+						clearTimeout (setSeqEvent); 
+						setSeqEvent = setTimeout ( () => { theIframe.src = theUrl; }, 400);
+        }
 
 // }}} framer handling functions
 

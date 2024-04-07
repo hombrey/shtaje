@@ -58,14 +58,14 @@ function evalKeyDown(evnt) {
                    if (playRate < 0.1) playRate = 0.1;
                    playRate = parseFloat(playRate.toFixed(2));
                    clickedVid.playbackRate = playRate;
-                   if (osdTimeout > 0) showOSD(clickedVid.playbackRate);
+                   if (osdTimeout > 0) showOSD(clickedVid.playbackRate+" x");
                    break; //'['
         case 221 : evnt.preventDefault();
                    playRate += rateIncValue;
                    if (playRate > 16) playRate = 16;
                    playRate = parseFloat(playRate.toFixed(2));
                    clickedVid.playbackRate = playRate;
-                   if (osdTimeout > 0) showOSD(clickedVid.playbackRate);
+                   if (osdTimeout > 0) showOSD(clickedVid.playbackRate+" x");
                    break; // ']'
         case 190 : evnt.preventDefault();
                    clickedVid.pause();
@@ -83,6 +83,8 @@ function evalKeyDown(evnt) {
                    break; // '<right>'
         case 84 :  toggleVidMax(evnt);
                    break; // 't'
+        case 73 :	 showOSD(clickedVid.currentTime+" / "+clickedVid.duration);
+                   break; // 'i'
         case 77 :  if (!clickedVid.muted) clickedVid.muted=true; else clickedVid.muted=false;
                    showOSD("mute: "+clickedVid.muted);
                    break; // 'm'
@@ -319,13 +321,13 @@ function insertCss( code ) {
     document.getElementsByTagName("head")[0].appendChild( style );
 } //function insertCss( code)
 
-function showOSD(rate) {
+function showOSD(showText) {
     if (vidOSD) {
-        vidOSD.textContent = rate + "X";
+        vidOSD.textContent = showText;
     } else {
         vidOSD = document.createElement("DIV");
         vidOSD.style.cssText = "position:fixed;z-index:999999999;right:5vw;bottom:10vh;margin:0;padding:5px;width:auto;height:auto;font:bold 15pt/normal monospace;background:#444;color:#fff; opacity: 0.8";
-        vidOSD.textContent = rate + "X";
+        vidOSD.textContent = showText;
         document.body.appendChild(vidOSD);
     } // if (vidOSD)
     clearTimeout(osdTimer);
@@ -333,7 +335,7 @@ function showOSD(rate) {
         vidOSD.remove();
         vidOSD = null;
     }, osdTimeout);
-} // function showOSD(rate)
+} // function showOSD(showText)
 
 function delay(n) {  
         n = n || 2000;

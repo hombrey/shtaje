@@ -83,7 +83,7 @@ function evalKeyDown(evnt) {
                    break; // '<right>'
         case 84 :  toggleVidMax(evnt);
                    break; // 't'
-        case 73 :	 showOSD(clickedVid.currentTime+" / "+clickedVid.duration);
+        case 73 :	 showOSD((clickedVid.currentTime/60).toFixed(1)+" / "+(clickedVid.duration/60).toFixed(1));
                    break; // 'i'
         case 77 :  if (!clickedVid.muted) clickedVid.muted=true; else clickedVid.muted=false;
                    showOSD("mute: "+clickedVid.muted);

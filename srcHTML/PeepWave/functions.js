@@ -336,6 +336,7 @@ async function skipRandom() {
 } //async function skipRandom()
 
 function togglePlay(wavSelect) {
+		let initialLoadDelay=false; //this will be set to 'true' if wavDoc is not yet set
 
     if (!isWavDocSet) {
         let imgBaseName = picSet[imgIndex].src.split('.').slice(0, -1).join();  // extract base name of the current image
@@ -364,6 +365,7 @@ function togglePlay(wavSelect) {
         //console.log("update wav file source:",wavDoc.sound.src);
         isWavDocSet = true;
         wavDoc.stop();
+				initialLoadDelay=true;
     } //if isWavDocSet
 
     if (!isPaused) {
@@ -375,8 +377,9 @@ function togglePlay(wavSelect) {
     } else {
         pauseIndicator.style.display = "block";
         pauseIndicator.style.backgroundColor = "green";
-        wavDoc.pause(); 
-        wavDoc.play(); 
+        // wavDoc.pause(); 
+				if (initialLoadDelay) setTimeout ( () => {wavDoc.play();}, 300);
+					else wavDoc.play(); 
         isPaused = false;
     } // if (isPaused)
 

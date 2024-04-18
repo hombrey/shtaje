@@ -1,0 +1,6 @@
+  .fragment.blur {
+    filter: blur(25px);
+  }
+  .fragment.blur.visible {
+    filter: none;
+  }

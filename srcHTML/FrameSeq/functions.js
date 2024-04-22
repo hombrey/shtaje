@@ -90,6 +90,8 @@ function evalKeyDown(evnt) {
                   break; //key: p
        case 82  : window.location.reload(); 
                   break; //key: r
+       case 84  : if (event.shiftKey) window.open(document.getElementById('myIframe').src,'_blank'); 
+                  break; //key: t
         case 112  : evnt.preventDefault(); helpHandle.className="unhiddenHelp"; break; //key: F1
         default : return;
     } //switch (keyPressed)

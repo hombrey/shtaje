@@ -22,6 +22,7 @@ var switchVidEvent;
 window.addEventListener("DOMContentLoaded", initWin);
 window.addEventListener("keydown", evalKeyDown, false); //capture keypress on bubbling (false) phase
 window.addEventListener("keyup", evalKeyUp, false); //capture keypress on bubbling (false) phase
+document.addEventListener('contextmenu', event => event.preventDefault()); //disable right click
 
 function evalKeyUp(evnt) {
     let keyReleased = evnt.keyCode;

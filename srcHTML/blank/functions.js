@@ -1,7 +1,8 @@
 //{{{variable declarations
 "use strict";
 let helpHandle;
-let sourceDir, assetDir;
+let isPenToolHidden=true;
+let sourceDir="void", assetDir;
 ;//}}}variable declarations
 
 //{{{event listeners
@@ -54,11 +55,8 @@ function evalKeyDown(evnt) {
 //{{{window init
 function initWin() {
 
-    //Get project source
-    sourceDir = document.getElementById("srcdir").innerHTML;
 
     // window.addEventListener("keydown", evalKeyDown, false); //capture keypress on bubbling (false) phase
-
     createHelpWindow();
     createPentool();
 } //function init()
@@ -186,10 +184,11 @@ function delay(n) {
 }//function delay()
 
 function createHelpWindow() {
+    //enable help if sourceDir is defined
     helpHandle = document.createElement('iframe');
     helpHandle.setAttribute('id','myHelpFrame');
     helpHandle.setAttribute('class','hiddenHelp');
-    helpHandle.setAttribute('src',sourceDir+'help.html');
+		if (sourceDir!="void") helpHandle.setAttribute('src',sourceDir+'help.html');
     document.body.appendChild(helpHandle);
 } //function createHelpWindow()
 

@@ -13,7 +13,7 @@ if [[ $1 == *"pdf" || $1 == *"PDF" ]]; then
 else
 		echo " ----------"
 		echo "(v)oid"
-		echo "(r)eact-js"
+		echo "(r)reveal-js"
 		echo " ----------"
 		echo -n "select type: "
 		read -n1 selectedType
@@ -30,7 +30,7 @@ if [[ $selectedType == "v" ]]; then
 	echo "</head>" >> $TARGETFILE
 	echo "<body>" >> $TARGETFILE
 	echo "    <select class=\"selectBox\" id=\"dummy\"><option>empty</option></select>" >> $TARGETFILE
-	echo "    <div id=\"srcdir\" style=\"display:none;\">$SOURCEDIR/</div>" >> $TARGETFILE
+	echo "		<script>sourceDir=\"$SOURCEDIR/\"</script>" >> $TARGETFILE
 					if [[ $1 == *"pdf" || $1 == *"PDF" ]]; then
 						echo "    <object  class=\"pdf\" data=\"$1\">reader</object>" >> $TARGETFILE
 					fi
@@ -61,17 +61,17 @@ fi
 	echo "    <link rel=\"stylesheet\" href=\"$SOURCEDIR/reveal/reveal.css\">" >> $TARGETFILE
 	echo "    <link rel=\"stylesheet\" href=\"$SOURCEDIR/reveal/fragments.css\">" >> $TARGETFILE
 	echo "    <link id="revealTheme" rel=\"stylesheet\" href=\"$SOURCEDIR/reveal/theme_white.css\">" >> $TARGETFILE
+	echo "    <script src=\"../../../srcHTML/blank/functions.js\"></script> " >> $TARGETFILE
 	echo "</head>" >> $TARGETFILE
 	echo "<body>" >> $TARGETFILE
 	echo "    <select class=\"selectBox\" id=\"dummy\"><option>empty</option></select>" >> $TARGETFILE
-	echo "    <div id=\"srcdir\" style=\"display:none;\">$SOURCEDIR/</div>" >> $TARGETFILE
+	echo "		<script>sourceDir=\"$SOURCEDIR/\"</script>" >> $TARGETFILE
 	echo "    <!--}}}header-->" >> $TARGETFILE
 	echo "	<div class=\"reveal\"> <div class=\"slides\">" >> $TARGETFILE
 	echo "" >> $TARGETFILE
 	echo "" >> $TARGETFILE
 	echo "	</div> </div> <!-- reveal slides -->" >> $TARGETFILE
 	echo "    <!--{{{footer-->" >> $TARGETFILE
-	echo "  <script src=\"../../../srcHTML/blank/functions.js\"></script> " >> $TARGETFILE
 	echo "	<script src=\"../../../srcHTML/blank/reveal/reveal.js\"></script>" >> $TARGETFILE
 	echo "	<script src=\"../../../srcHTML/blank/reveal/plugin/zoom/zoom.js\"></script>" >> $TARGETFILE
 	echo "	<script>" >> $TARGETFILE
@@ -79,7 +79,8 @@ fi
 	echo "let darkTheme=\"$SOURCEDIR/reveal/theme_white.css\"" >> $TARGETFILE
 	echo "let lightTheme=\"$SOURCEDIR/reveal/theme_black.css\"" >> $TARGETFILE
 	echo "		Reveal.initialize({" >> $TARGETFILE
-	echo "			controls: false, center: true, hash: false," >> $TARGETFILE
+	echo "			controls: false, center: true, hash: false, loop: true," >> $TARGETFILE
+	echo "			slideNumber: true, help: false," >> $TARGETFILE
 	echo "			// Learn about plugins: https://revealjs.com/plugins/" >> $TARGETFILE
 	echo "			plugins: [ RevealZoom ]" >> $TARGETFILE
 	echo "		});" >> $TARGETFILE

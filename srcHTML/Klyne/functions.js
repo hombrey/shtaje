@@ -18,6 +18,7 @@ let nTab;
 window.addEventListener("DOMContentLoaded", initWin);
 window.addEventListener("resize", initWin);
 window.addEventListener("keydown", evalKey, false); //capture keypress on bubbling (false) phase
+document.addEventListener('contextmenu', event => event.preventDefault()); //disable right click
 function evalKey(evnt) {
     let keyPressed = evnt.keyCode;
     // console.log ("Pressed: ",keyPressed);

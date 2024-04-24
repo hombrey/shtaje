@@ -27,6 +27,7 @@ window.addEventListener("resize", scaleScreen);
 window.addEventListener('message', evalMessage);
 window.addEventListener("keydown", evalKeyDown, false); //capture keypress on bubbling (false) phase
 window.addEventListener("keyup", evalKeyUp, false); //capture keypress on bubbling (false) phase
+document.addEventListener('contextmenu', event => event.preventDefault()); //disable right click
 window.addEventListener("DOMContentLoaded", initWin);
 
 function evalKeyUp(evnt) {
@@ -143,7 +144,8 @@ function initWin() {
         //wait for elements to load before scaling
         scaleScreen();
 
-        context = canvas.getContext("2d");
+        // context = canvas.getContext("2d");
+        context = canvas.getContext("2d",{willReadFrequently: true });
         context.fillStyle = "transparent";
         context.fillRect(0, 0, canvas.width, canvas.height);
 

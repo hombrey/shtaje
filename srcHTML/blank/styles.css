@@ -101,7 +101,6 @@ object {
     } /*clear*/
 
     #slider {
-        /*-webkit-appearance: slider-vertical;*/
         position: absolute;
         top: 4.2vw;
         left: 1.0vw;

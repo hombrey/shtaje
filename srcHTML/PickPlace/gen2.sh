@@ -3,26 +3,32 @@
 # extract the source directory from the command used to call this script
 SOURCEDIR=`echo "${0%/*}"`
 HOMEDIR=`echo ~`
+TARGETFILE='x_Pick.html'
 #truncate last character (i.e. "/")
 
+# prevent overwrite of previously generated file
+if [[ -f ./x_Pick.html ]]; then
+		TARGETFILE='x_Pick-new.html'
+fi
 
-echo "<!DOCTYPE html>" > x_Pick.html
-echo "<html lang=\"en\">" >> x_Pick.html
-echo "<head>" >> x_Pick.html
-echo "    <meta charset=\"UTF-8\">" >> x_Pick.html
-echo "    <title></title> " >> x_Pick.html
-echo "    <meta name=\"description\" content\"\">" >> x_Pick.html
-echo "    <meta name=\"author\" content=\"Hombrey\">" >> x_Pick.html
-echo "    <link rel=\"stylesheet\" href=\"$SOURCEDIR/styles.css\">" >> x_Pick.html
-echo "</head>" >> x_Pick.html
-echo "" >> x_Pick.html
-echo "<body id=\"myBody\">" >> x_Pick.html
-echo "    <div id=\"srcdir\" style=\"display:none;\">$SOURCEDIR/</div>" >> x_Pick.html
-echo "    <div id=\"assetdir\" style=\"display:none\">./</div>" >> x_Pick.html
-echo "" >> x_Pick.html
-echo "    <img class=\"fullPage\" id=\"backgroundX\" src=\"$SOURCEDIR/img/BG0.png\">" >> x_Pick.html
-echo "    <select class=\"selectBox\" id=\"dummy\"><option>PickAndPlace</option></select>" >> x_Pick.html
-echo "    <script src=\"$SOURCEDIR/func2.js\"></script> " >> x_Pick.html
+
+echo "<!DOCTYPE html>" > $TARGETFILE
+echo "<html lang=\"en\">" >> $TARGETFILE
+echo "<head>" >> $TARGETFILE
+echo "    <meta charset=\"UTF-8\">" >> $TARGETFILE
+echo "    <title></title> " >> $TARGETFILE
+echo "    <meta name=\"description\" content\"\">" >> $TARGETFILE
+echo "    <meta name=\"author\" content=\"Hombrey\">" >> $TARGETFILE
+echo "    <link rel=\"stylesheet\" href=\"$SOURCEDIR/styles.css\">" >> $TARGETFILE
+echo "</head>" >> $TARGETFILE
+echo "" >> $TARGETFILE
+echo "<body id=\"myBody\">" >> $TARGETFILE
+echo "    <div id=\"srcdir\" style=\"display:none;\">$SOURCEDIR/</div>" >> $TARGETFILE
+echo "    <div id=\"assetdir\" style=\"display:none\">./</div>" >> $TARGETFILE
+echo "" >> $TARGETFILE
+echo "    <img class=\"fullPage\" id=\"backgroundX\" src=\"$SOURCEDIR/img/BG0.png\">" >> $TARGETFILE
+echo "    <select class=\"selectBox\" id=\"dummy\"><option>PickAndPlace</option></select>" >> $TARGETFILE
+echo "    <script src=\"$SOURCEDIR/func2.js\"></script> " >> $TARGETFILE
 
 ls $SOURCEDIR/tail2 | sort -n > $HOMEDIR/tmp/list.txt
 filelist="$HOMEDIR/tmp/list.txt"
@@ -44,5 +50,5 @@ read -p "select Tail: " selectedTail
 
 #TAILTYPE=`echo $1`
 TAILTYPE=`echo $SOURCEDIR/tail2/${tails[selectedTail]}`
-cat "$TAILTYPE" >> x_Pick.html
+cat "$TAILTYPE" >> $TARGETFILE
 rm $filelist

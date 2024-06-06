@@ -186,13 +186,13 @@ function initWin() {
     createHelpWindow();
     attachKlynetoPopFrame();
 
-    window.removeEventListener("DOMContentLoadedl", initWin);
+    window.removeEventListener("DOMContentLoaded", initWin);
 } //function initWin()
 
 function scaleScreen() {
 
     canvas.width = window.innerWidth;
-     canvas.height = window.innerHeight;
+    canvas.height = window.innerHeight;
 
 } //function scaleScreen()
 

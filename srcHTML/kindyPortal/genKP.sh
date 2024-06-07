@@ -3,10 +3,10 @@
 # extract the source directory from the command used to call this script
 SOURCEDIR=`echo "${0%/*}"`
 ASSETDIR='./'
-HOMEDIR=`echo ~`
+CURRENTDIR=`pwd`
 #truncate last character (i.e. "/")
 
-input="$HOMEDIR/tmp/list.txt"
+input="$CURRENTDIR/list.txt"
 
 echo "<!DOCTYPE html>" > index.html
 echo "<html lang=\"en\">" >> index.html
@@ -30,8 +30,8 @@ echo "          <img class=\"fullPage\" id=\"backgroundX\" src=\"$SOURCEDIR/img/
 echo "          <img class=\"fullPage\" id=\"foregroundX\" src=\"$SOURCEDIR/img/null.webp\">" >> index.html
 echo "          <select id=\"selectMam\" name=\"\" onChange=\"selectFile(this.value)\" onclick=\"openNewTab(this.value)\" size=15>" >> index.html
 
-ls -d ./LI1*/*/*.html > $HOMEDIR/tmp/listUnsort.txt
-sort --version-sort $HOMEDIR/tmp/listUnsort.txt> $input
+ls -d ./LI1*/*/*.html > $CURRENTDIR/listUnsort.txt
+sort --version-sort $CURRENTDIR/listUnsort.txt> $input
 
     while IFS= read -r line
     do
@@ -44,8 +44,8 @@ echo "          </select>" >> index.html
 echo "" >> index.html
 echo "          <select id=\"selectChoi\" name=\"\" onChange=\"selectFile(this.value)\" onclick=\"openNewTab(this.value)\" size=15>" >> index.html
 
-ls -d ./LI2*/*/*.html > $HOMEDIR/tmp/listUnsort.txt
-sort --version-sort $HOMEDIR/tmp/listUnsort.txt> $input
+ls -d ./LI2*/*/*.html > $CURRENTDIR/listUnsort.txt
+sort --version-sort $CURRENTDIR/listUnsort.txt> $input
 
     while IFS= read -r line
     do
@@ -58,8 +58,8 @@ echo "          </select>" >> index.html
 echo "" >> index.html
 echo "          <select id=\"selectLa\" name=\"\" onChange=\"selectFile(this.value)\" onclick=\"openNewTab(this.value)\" size=15>" >> index.html
 
-ls -d ./LI3*/*/*.html > $HOMEDIR/tmp/listUnsort.txt
-sort --version-sort $HOMEDIR/tmp/listUnsort.txt> $input
+ls -d ./LI3*/*/*.html > $CURRENTDIR/listUnsort.txt
+sort --version-sort $CURRENTDIR/listUnsort.txt> $input
 
     while IFS= read -r line
     do
@@ -72,8 +72,8 @@ echo "          </select>" >> index.html
 echo "" >> index.html
 echo "          <select id=\"selectOthers\" name=\"\" onChange=\"selectFile(this.value)\" onclick=\"openNewTab(this.value)\" size=15>" >> index.html
 
-ls -d ./LI4*/*/*.html > $HOMEDIR/tmp/listUnsort.txt
-sort --version-sort $HOMEDIR/tmp/listUnsort.txt> $input
+ls -d ./LI4*/*/*.html > $CURRENTDIR/listUnsort.txt
+sort --version-sort $CURRENTDIR/listUnsort.txt> $input
 
     while IFS= read -r line
     do
@@ -88,3 +88,6 @@ echo "     </div>  <!-- gridbox --> " >> index.html
 echo "</body> " >> index.html
 
 echo "</html>" >> index.html
+
+rm $CURRENTDIR/list.txt
+rm $CURRENTDIR/listUnsort.txt

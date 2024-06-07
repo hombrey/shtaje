@@ -2,8 +2,9 @@
 
 # extract the source directory from the command used to call this script
 SOURCEDIR=`echo "${0%/*}"`
-HOMEDIR=`echo ~`
+# HOMEDIR=`echo ~`
 TARGETFILE='x_Pick.html'
+LESSONDIR=`pwd`
 #truncate last character (i.e. "/")
 
 # prevent overwrite of previously generated file
@@ -30,8 +31,8 @@ echo "    <img class=\"fullPage\" id=\"backgroundX\" src=\"$SOURCEDIR/img/BG0.pn
 echo "    <select class=\"selectBox\" id=\"dummy\"><option>PickAndPlace</option></select>" >> $TARGETFILE
 echo "    <script src=\"$SOURCEDIR/func2.js\"></script> " >> $TARGETFILE
 
-ls $SOURCEDIR/tail2 | sort -n > $HOMEDIR/tmp/list.txt
-filelist="$HOMEDIR/tmp/list.txt"
+ls $SOURCEDIR/tail2 | sort -n > $LESSONDIR/list.txt
+filelist="$LESSONDIR/list.txt"
 
 echo $SOURCEDIR
 tailindex=1;

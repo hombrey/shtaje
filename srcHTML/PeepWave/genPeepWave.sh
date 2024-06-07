@@ -2,7 +2,7 @@
 
 # extract the source directory from the command used to call this script
 SOURCEDIR=`echo "${0%/*}"`
-HOMEDIR=`echo ~`
+LESSONDIR=`pwd`
 
 ALTWAVCOUNT="$(find ./altwav -maxdepth 1 -type f -printf x | wc -c)"
 echo "countALTWAV: $ALTWAVCOUNT"
@@ -30,8 +30,8 @@ echo "</body> " >> xPeepWave.html
 echo "    <script> " >> xPeepWave.html
 echo "      function initArrays() {" >> xPeepWave.html
 
-ls ./wav| sort -n> $HOMEDIR/tmp/list.txt
-input="$HOMEDIR/tmp/list.txt"
+ls ./wav| sort -n> $LESSONDIR/genList.txt
+input="$LESSONDIR/genList.txt"
 arrayIndex=1;
 
 echo "          wavSet = [new sound (srcDir+\"wav/pick.mp3\")," >> xPeepWave.html
@@ -46,12 +46,12 @@ done < "$input"
 echo "          new sound (srcDir+\"wav/pick.mp3\")];" >> xPeepWave.html
 
 
-ls | sort -n> $HOMEDIR/tmp/listUnsort.txt
-input="$HOMEDIR/tmp/list.txt"
+ls | sort -n> $LESSONDIR/genListUnsort.txt
+input="$LESSONDIR/genList.txt"
 arrayIndex=1;
 
 #this makes sure that the time tags are in order
-sort --version-sort $HOMEDIR/tmp/listUnsort.txt> $HOMEDIR/tmp/list.txt
+sort --version-sort $LESSONDIR/genListUnsort.txt> $LESSONDIR/genList.txt
 
 echo "          picSet = [ {src: \"\", wav: 0}," >> xPeepWave.html
 while IFS= read -r line
@@ -68,7 +68,8 @@ echo "      } // function initArrays()" >> xPeepWave.html
 echo "    </script> " >> xPeepWave.html
 echo "</html> " >> xPeepWave.html
 
-rm $HOMEDIR/tmp/list.txt
+rm $LESSONDIR/genList.txt
+rm $LESSONDIR/genListUnsort.txt
 
 # creete directories used by this iframe. Ignore errors if directories already exist
 mkdir alt || true

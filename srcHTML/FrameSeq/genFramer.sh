@@ -4,7 +4,6 @@
 SOURCEDIR=`echo "${0%/*}"`
 SOURCEROOT=`echo "${0%/*/*}"`
 SOURCEPREROOT=`echo "${0%/*/*/*}"`
-HOMEDIR=`echo ~`
 LESSONDIR=`pwd`
 BASEDIR=$(basename $LESSONDIR)
 
@@ -74,8 +73,8 @@ esac
 echo "" >> 0_F-X.html
 
 #list html files in lesson plan root directory
-ls -d *.html > $HOMEDIR/tmp/list.txt
-input="$HOMEDIR/tmp/list.txt"
+ls -d *.html > $LESSONDIR/list.txt
+input="$LESSONDIR/list.txt"
 arrayIndex=1;
 
 while IFS= read -r line
@@ -88,12 +87,12 @@ do
 done < "$input"
 
 #list html files tucked in a subdirectory
-ls -d ./*/*.html> $HOMEDIR/tmp/listUnsort.txt
+ls -d ./*/*.html> $LESSONDIR/listUnsort.txt
 
 #this makes sure that the time tags are in order
-sort --version-sort $HOMEDIR/tmp/listUnsort.txt> $HOMEDIR/tmp/list.txt
+sort --version-sort $LESSONDIR/listUnsort.txt> $LESSONDIR/list.txt
 
-input="$HOMEDIR/tmp/list.txt"
+input="$LESSONDIR/list.txt"
 arrayIndex=1;
 
 while IFS= read -r line
@@ -124,3 +123,6 @@ esac
 echo "   </select>" >> 0_F-X.html
 echo "</body>" >> 0_F-X.html
 echo "</html>" >> 0_F-X.html
+
+rm $LESSONDIR/list.txt
+rm $LESSONDIR/listUnsort.txt

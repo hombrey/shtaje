@@ -1,9 +1,10 @@
 #!/bin/bash
 HOMEDIR=`echo ~`
+LESSONDIR=`pwd`
 
-ls | sort -n > $HOMEDIR/tmp/list.txt
-input="$HOMEDIR/tmp/list.txt"
-optionsList="$HOMEDIR/tmp/optionlist.txt"
+ls | sort -n > $LESSONDIR/list.txt
+input="$LESSONDIR/list.txt"
+optionsList="$LESSONDIR/optionlist.txt"
 # extract the source directory from the command used to call this script
 SOURCEDIR=`echo "${0%/*}"`
 
@@ -84,4 +85,5 @@ echo "</body> " >> $output
 echo "    <script src=\"$SOURCEDIR/functions.js\"></script> " >> $output
 echo "</html> " >> $output
 
-#rm $HOMEDIR/tmp/list.txt
+rm $input
+rm $optionsList

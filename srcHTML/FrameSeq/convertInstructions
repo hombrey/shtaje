@@ -1,0 +1,17 @@
+
+# get all framer html files
+!nvim `ls -d ./*/*.html`
+
+# replace strings
+bufdo %s/SongsHTML\//SongsHTML\/SK0_attach\//g 
+bufdo %s/Z_bye/4_bye/g
+bufdo %s/A_hi\/L1/1_L1/g
+bufdo %s/A_hi\/L2/2_L2/g
+bufdo %s/A_hi\/L3/3_L3/g
+bufdo %s/A_hi/0_hi/g
+
+bufdo %s/SongsHTML\//SongsHTML\/SK0_attach\//g | bufdo %s/Z_bye/4_bye/g | bufdo %s/A_hi\/L2/2_L2/g | bufdo %s/A_hi/0_hi/g
+bufdo %s/SongsHTML\//SongsHTML\/SK0_attach\//g | bufdo %s/Z_bye/4_bye/g | bufdo %s/A_hi\/L3/3_L3/g | bufdo %s/A_hi/0_hi/g
+
+# effectively disable deprecated function definition if it exists
+bufdo %s/setSeqSource() {/setSeqSourceOld() {/g

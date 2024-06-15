@@ -171,7 +171,7 @@ function initWin() {
     //This adds a callup to the songs folder
     let songsOption = document.createElement ('option');
     songsOption.innerHTML="songs";
-    songsOption.value="../../SongsHTML/0_Songs.html";
+    songsOption.value="../../SongsHTML/SK0_attach/0_F-X.html";
 
     toolHandle.add(songsOption);
 

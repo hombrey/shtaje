@@ -61,7 +61,7 @@ fi
 	echo "    <link rel=\"stylesheet\" href=\"$SOURCEDIR/reveal/reveal.css\">" >> $TARGETFILE
 	echo "    <link rel=\"stylesheet\" href=\"$SOURCEDIR/reveal/fragments.css\">" >> $TARGETFILE
 	echo "    <link id="revealTheme" rel=\"stylesheet\" href=\"$SOURCEDIR/reveal/theme_white.css\">" >> $TARGETFILE
-	echo "    <script src=\"../../../srcHTML/blank/functions.js\"></script> " >> $TARGETFILE
+	echo "    <script src=\"$SOURCEDIR/functions.js\"></script> " >> $TARGETFILE
 	echo "</head>" >> $TARGETFILE
 	echo "<body>" >> $TARGETFILE
 	echo "    <select class=\"selectBox\" id=\"dummy\"><option>empty</option></select>" >> $TARGETFILE
@@ -72,8 +72,8 @@ fi
 	echo "" >> $TARGETFILE
 	echo "	</div> </div> <!-- reveal slides -->" >> $TARGETFILE
 	echo "    <!--{{{footer-->" >> $TARGETFILE
-	echo "	<script src=\"../../../srcHTML/blank/reveal/reveal.js\"></script>" >> $TARGETFILE
-	echo "	<script src=\"../../../srcHTML/blank/reveal/plugin/zoom/zoom.js\"></script>" >> $TARGETFILE
+	echo "	<script src=\"$SOURCEDIR/reveal/reveal.js\"></script>" >> $TARGETFILE
+	echo "	<script src=\"$SOURCEDIR/reveal/plugin/zoom/zoom.js\"></script>" >> $TARGETFILE
 	echo "	<script>" >> $TARGETFILE
 	echo "let currentTheme=\"dark\"" >> $TARGETFILE
 	echo "let darkTheme=\"$SOURCEDIR/reveal/theme_white.css\"" >> $TARGETFILE

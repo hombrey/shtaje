@@ -72,8 +72,8 @@ cat $optionsList >> $output
 echo "    </select>" >> $output
 echo "    </div>" >> $output
 
-#immediately show first video clip in dropdown style
-if [[ $selectedStyle == "d" ]]; then
+#immediately show first video clip in dropdown style or if there's only one video
+if [[ $selectedStyle == "d" || $vidIndex -le 1 ]]; then
     echo "    <video src=\"./$FIRSTVID\" id=\"vidPicked\" onmouseover=\"initVidPlayer(this.id)\"></video>" >> $output
 else
     echo "    <video src=\"$SOURCEDIR/img/init.mp4\" id=\"vidPicked\" onmouseover=\"initVidPlayer(this.id)\"></video>" >> $output

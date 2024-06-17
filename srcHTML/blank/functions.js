@@ -44,7 +44,7 @@ function initWin() {
 
     // window.addEventListener("keydown", evalKeyDown, false); //capture keypress on bubbling (false) phase
     createHelpWindow();
-    createPentool();
+    // createPentool();
 } //function init()
 
 //}}}window init

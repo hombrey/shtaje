@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+    <!--{{{header-->
+<html lang="en">
+<head>
+	<meta charset="utf-8"> 
+    <link rel="stylesheet" href="../../../srcHTML/blank/styles.css">
+    <link rel="stylesheet" href="../../../srcHTML/blank/reveal/reveal.css">
+    <link rel="stylesheet" href="../../../srcHTML/blank/reveal/fragments.css">
+    <link id=revealTheme rel="stylesheet" href="../../../srcHTML/blank/reveal/theme_white.css">
+</head>
+<body>
+    <select class="selectBox" id="dummy"><option>empty</option></select>
+    <div id="srcdir" style="display:none;">../../../srcHTML/blank/</div>
+  	<div class="reveal"> <div class="slides">
+    <!--}}}header-->
+
+	<!-- {{{primary-helper examples -->
+<section data-background="#00000000"> 
+					<h2>Layout Helper Examples</h2>
+					<ul>
+						<li><a href="#/ordered-list">Ordered list</a></li>
+						<li><a href="#/fit-text">Fit Text</a></li>
+						<li><a href="#/stretch">Stretch</a></li>
+						<li><a href="#/stack">Stack</a></li>
+						<li><a href="#/hstack">HStack</a></li>
+						<li><a href="#/vstack">VStack</a></li>
+						<li><a href="#/blur">blur fragments</a></li>
+						<li><a href="#/code">code</a></li>
+					</ul>
+</section> <!-- }}}primary -->
+<!-- {{{primary-ordered list -->
+<section data-background="#00000000" id="ordered-list"> 
+		<section> <!-- {{{secondary -->
+			<h2>Ordered lists</h2> 
+			<ol>
+				<li>monkeys</li>
+				<li>chickens</li>
+				<li>elephants</li>
+			</ol> 
+		</section> <!-- }}}secondary -->
+		<section> <!-- {{{secondary -->
+			<h2>Another ordered list</h2> 
+			<ol>
+				<li class="fragment custom blur">monkeys</li>
+				<li class="fragment custom blur">chickens</li>
+				<li class="fragment custom blur">elephants</li>
+			</ol> 
+		</section> <!-- }}}secondary -->
+</section> <!-- }}}primary -->
+	<!-- {{{primary fit text-->
+<section id="fit-text"> 
+		<section> <!-- {{{secondary-fit-Text -->
+					<div class="r-fit-text">
+							<h2 >Fit Text</h2>
+							<p>Resizes text to be as large as possible within its container.</p>
+							<p>This contains a lot of text. This contains a lot of text. 
+							This contains a lot of text. This contains a lot of text. This contains a lot of text. This contains a lot of text. 
+							This contains a lot of text. This contains a lot of text. This contains a lot of text. This contains a lot of text. 
+							This contains a lot of text. This contains a lot of text. This contains a lot of text. This contains a lot of text. 
+							This contains a lot of text. This contains a lot of text. This contains a lot of text. This contains a lot of text. 
+							This contains a lot of text. This contains a lot of text. This contains a lot of text. This contains a lot of text. 
+							This contains a lot of text. This contains a lot of text. This contains a lot of text. This contains a lot of text. 
+							This contains a lot of text. This contains a lot of text. This contains a lot of text. This contains a lot of text. 
+							This contains a lot of text. This contains a lot of text. This contains a lot of text. This contains a lot of text. 
+							This contains a lot of text. This contains a lot of text. This contains a lot of text. This contains a lot of text. 
+							This contains a lot of text. This contains a lot of text. This contains a lot of text. This contains a lot of text. 
+							This contains a lot of text. This contains a lot of text. This contains a lot of text. This contains a lot of text.
+							This contains a lot of text. This contains a lot of text. </p>
+							<h2 >FIT</h2>
+					</div>
+		</section> <!-- }}}secondary -->
+<section> <!-- {{{secondary-Big Text -->
+					<h2 class="r-fit-text">HELLO WORLD</h2>
+					<h2 class="r-fit-text">BOTH TITLES USE FIT-TEXT</h2>
+</section> <!-- }}}secondary -->
+</section> <!-- }}}primary -->
+<!-- {{{ primary-stretch -->
+<section id="stretch" data-background="#00000000">
+	<p>stretch class an element as tall as possible while remaining within the slide bounds.</p>
+		<img src="./img/stretchImage.webp" class="r-stretch" alt="">
+</section> <!-- }}}primary -->
+<!-- {{{ primary-stack -->
+<section id="stack" data-background="#00000000">
+		<h2>Stack</h2>
+		<p>Stacks multiple elements on top of each other, for use with fragments.</p>
+			<div class="r-stack">
+					<p class="fragment fade-in-then-out">One</p>
+					<p class="fragment fade-in-then-out">Two</p>
+					<p class="fragment fade-in-then-out">Three</p>
+					<p class="fragment fade-in-then-out">Four</p>
+			</div>
+</section> <!-- }}}primary -->
+<!-- {{{ primary-hstack -->
+<section id="hstack" data-background="#00000000">
+		<h2>HStack</h2>
+		<p>Stacks multiple elements horizontally.</p>
+			<div class="r-hstack">
+			<p style="padding: 0.50em; margin: 0.25em">One</p>
+			<p style="padding: 0.50em; margin: 0.25em">Two</p>
+			<p style="padding: 0.50em; margin: 0.25em">Three</p>
+			</div>
+</section> <!-- }}}primary -->	
+<!-- {{{ primary-vstack -->
+<section id="vstack" data-background="#00000000">
+		<h2>VStack</h2>
+		<p>Stacks multiple elements vertically.</p>
+			<div class="r-vstack">
+				<p style="padding: 0.50em; margin: 0.25em">One</p>
+				<p style="padding: 0.75em; margin: 0.25em">Two</p>
+				<p style="padding: 1.00em; margin: 0.25em">Three</p>
+			</div>
+</section> <!-- }}}primary -->
+<!-- {{{ primary-blurFragments -->
+<section id="blur" data-background="#00000000">
+		<h2>blur</h2>
+		<p>Stacks multiple elements vertically.</p>
+			<!-- <div class="r-vstack"> -->
+			<!-- <div class="r-hstack"> -->
+			<div >
+					<p style="padding: 5.5em margin: 3.25em" class="fragment custom blur">One</p>
+					<p style="padding: 5.5em margin: 3.25em" class="fragment custom blur">Two</p>
+			</div>
+</section> <!-- }}}primary -->
+<!-- {{{ primary-code -->
+<section id="code" data-background="#00000000">
+			<h3 class="text">Code snippet</h3>
+				<pre><code data-trim data-noescape>
+						(concat
+									(lazy-cons (+ a b) (rfib b (+ a b)))) 0 1)))
+				</code></pre>
+</section> <!-- }}}primary -->
+
+    <!--{{{footer-->
+	</div> </div> <!-- reveal slides -->
+  <script src="../../../srcHTML/blank/functions.js"></script> 
+	<script src="../../../srcHTML/blank/reveal/reveal.js"></script>
+	<script src="../../../srcHTML/blank/reveal/plugin/zoom/zoom.js"></script>
+	<script>
+let currentTheme="dark"
+let darkTheme="../../../srcHTML/blank/reveal/theme_white.css"
+let lightTheme="../../../srcHTML/blank/reveal/theme_black.css"
+		Reveal.initialize({
+			controls: false, center: true, hash: false, loop: true,
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [ RevealZoom ]
+		});
+	</script>
+</body>
+</html>
+    <!--}}}footer-->

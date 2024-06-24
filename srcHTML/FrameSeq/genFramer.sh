@@ -44,6 +44,7 @@ case $LESSONDIR in
     ;;
 	*)
 		echo " <iframe class=\"subframe\" id=\"myIframe\" src=\"$SOURCEROOT/startpage/index.html\"></iframe>" >> 0_F-X.html
+		echo "<!-- <iframe class=\"subframe\" id=\"myIframe\" src=\"  \"></iframe> -->" >> 0_F-X.html
 	;;
 esac
 echo "" >> 0_F-X.html

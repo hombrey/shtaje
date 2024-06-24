@@ -65,12 +65,14 @@ function evalMessage (evnt) {
 
 function toggleTheme ()  {
 	if (currentTheme=="dark") {
-		console.log ("toggle theme ",currentTheme)
+		// console.log ("toggle theme ",currentTheme)
 		document.getElementById("revealTheme").setAttribute("href",lightTheme);
+		currentTheme="light"
 		return true;
 	} else {
-		console.log ("toggle theme ",currentTheme)
+		// console.log ("toggle theme ",currentTheme)
 		document.getElementById("revealTheme").setAttribute("href",darkTheme);
+		currentTheme="dark"
 		return true;
 	} // if (currentTheme="dark")
 } // function toggleTheme () 

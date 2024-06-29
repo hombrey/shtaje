@@ -57,7 +57,7 @@ echo "          picSet = [ {src: \"\", wav: 0}," >> xPeepWave.html
 while IFS= read -r line
 do
     EVAL=`echo " \"$line\" "`
-    if [[ $EVAL == *"jpg"* || $EVAL == *"png"* || $EVAL == *"webp"* ]]; then
+    if [[ $EVAL == *"jpg"* || $EVAL == *"png"* || $EVAL == *"webp"* || $EVAL == *"avif"* ]]; then
         echo "              {src: \"$line\", wav: $arrayIndex }," >> xPeepWave.html
         ((arrayIndex++)) 
     fi

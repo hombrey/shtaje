@@ -78,6 +78,8 @@ fi
 	echo "let darkTheme=\"$SOURCEDIR/reveal/theme_white.css\"" >> $TARGETFILE
 	echo "let lightTheme=\"$SOURCEDIR/reveal/theme_black.css\"" >> $TARGETFILE
 	echo "		Reveal.initialize({" >> $TARGETFILE
+	echo "			width: 1800, height: 900," >> $TARGETFILE
+	echo "			transition: 'slide', //none/fade/slide/convex/concave/zoom" >> $TARGETFILE
 	echo "			controls: false, center: true, hash: false, loop: true," >> $TARGETFILE
 	echo "			slideNumber: true, help: false," >> $TARGETFILE
 	echo "			// Learn about plugins: https://revealjs.com/plugins/" >> $TARGETFILE

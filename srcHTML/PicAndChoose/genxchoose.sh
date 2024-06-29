@@ -55,7 +55,7 @@ echo "      promptSet = [" >> x_choose.html
 while IFS= read -r line
 do
     EVAL=`echo " \"$line\" "`
-    if [[ $EVAL == *"jpg"* || $EVAL == *"png"* || $EVAL == *"webp"* ]]; then
+    if [[ $EVAL == *"jpg"* || $EVAL == *"png"* || $EVAL == *"webp"* || $EVAL == *"avif"* ]]; then
         if [[ $isShuffled == "y" ]]; then
                 # insert each name of the file and plug in the first character of file as default choice
                 echo "        new PromptString(\"$line\",${line:0:1})," >> x_choose.html

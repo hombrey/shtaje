@@ -1,0 +1,31 @@
+    <!--{{{head-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>LH0</title> 
+    <script src="../../srcHTML/FrameSeq/functions.js"></script> 
+    <script type="text/javascript">
+        function setToolSource(urlvalue) {
+            window.open(urlvalue,'_blank');
+        }
+    </script>
+    <link rel="stylesheet" href="../../srcHTML/FrameSeq/styles.css">
+</head>
+<body>
+    <!--}}}head-->
+    <select id="seqSelect" onChange="setSeqSource()" size=1> 
+        <option value="../../srcHTML/startpage/index.html">LH0</option> 
+
+
+   </select>
+    <!--{{{foot-->
+ <img class="fullPage" id="backgroundX" src="../../srcHTML/FrameSeq/background.jpg">
+ <iframe class="subframe" id="myIframe" src="../../srcHTML/startpage/index.html"></iframe>
+
+    <select id="toolSelect" onClick="setToolSource(this.value)" size=1 autofocus> 
+      <option value="../../srcHTML/Klyne/klyne.html">Klyne</option> 
+      <option value="./">localDir</option> 
+   </select>
+</body>
+</html>
+    <!--}}}foot-->

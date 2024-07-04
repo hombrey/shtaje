@@ -1,0 +1,34 @@
+    <!--{{{head-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>CH0</title> 
+    <script src="../../srcHTML/FrameSeq/functions.js"></script> 
+    <script type="text/javascript">
+        function setToolSource(urlvalue) {
+            window.open(urlvalue,'_blank');
+        }
+    </script>
+    <link rel="stylesheet" href="../../srcHTML/FrameSeq/styles.css">
+</head>
+<body>
+    <!--}}}head-->
+    <select id="seqSelect" onChange="setSeqSource()" size=1> 
+        <option value="../../SongsHTML/SK0_attach/0_hi/x_horiz.html">0_hello</option> 
+        <option value="../../SongsHTML/SK0_attach/2_L2/x_horiz.html">3_WarmUp</option> 
+        <option value="../../srcHTML/Klyne/klyne.html">9_classMgt</option> 
+
+
+        <option value="../../SongsHTML/SK0_attach/4_bye/x_horiz.html">30_Bye</option>
+   </select>
+    <!--{{{foot-->
+ <img class="fullPage" id="backgroundX" src="../../srcHTML/FrameSeq/background.jpg">
+ <iframe class="subframe" id="myIframe" src="../../SongsHTML/SK0_attach/0_hi/x_horiz.html"></iframe>
+
+    <select id="toolSelect" onClick="setToolSource(this.value)" size=1 autofocus> 
+      <option value="../../srcHTML/Klyne/klyne.html">Klyne</option> 
+      <option value="./">localDir</option> 
+   </select>
+</body>
+</html>
+    <!--}}}foot-->

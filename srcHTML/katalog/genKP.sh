@@ -81,6 +81,16 @@ sort --version-sort $CURRENTDIR/listUnsort.txt> $input
         echo "          <option value=\"$line\">$truncLine</option>" >> index.html
     done < "$input"
 
+ls -d ./LI5*/*/*.html > $CURRENTDIR/listUnsort.txt
+sort --version-sort $CURRENTDIR/listUnsort.txt> $input
+
+    while IFS= read -r line
+    do
+        truncLine=${line#*/*LI4_}
+        echo "          <option value=\"$line\">$truncLine</option>" >> index.html
+    done < "$input"
+
+
 echo "          </select>" >> index.html
 
 echo "     </div>  <!-- gridbox --> " >> index.html

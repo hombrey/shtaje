@@ -1,0 +1,37 @@
+    <!--{{{head-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>SK0_attach</title> 
+    <script src="../../srcHTML/FrameSeq/functions.js"></script> 
+    <script type="text/javascript">
+        function setToolSource(urlvalue) {
+            window.open(urlvalue,'_blank');
+        }
+    </script>
+    <link rel="stylesheet" href="../../srcHTML/FrameSeq/styles.css">
+</head>
+    <!--}}}head-->
+<body>
+    <!--{{{outerFrame-->
+ <img class="fullPage" id="backgroundX" src="../../srcHTML/FrameSeq/background.jpg">
+ <iframe class="subframe" id="myIframe" src="./5_sndCH/x_horiz.html"></iframe>
+
+    <select id="toolSelect" onClick="setToolSource(this.value)" size=1 autofocus> 
+      <option value="../../srcHTML/Klyne/klyne.html">Klyne</option> 
+      <option value="./">localDir</option> 
+   </select>
+    <!--}}}outerFrame-->
+    <select id="seqSelect" onChange="setSeqSource()" size=1> 
+        <option value="../../srcHTML/startpage/index.html">SK0_attach</option> 
+
+        <option value="./0_hi/x_horiz.html">0_hi</option> 
+        <option value="./1_L1/x_horiz.html">1_L1</option> 
+        <option value="./2_L2/x_horiz.html">2_L2</option> 
+        <option value="./3_L3/x_horiz.html">3_L3</option> 
+        <option value="./4_bye/x_horiz.html">4_bye</option> 
+        <option value="./5_sndCH/x_horiz.html">5_sndCH</option> 
+
+   </select>
+</body>
+</html>

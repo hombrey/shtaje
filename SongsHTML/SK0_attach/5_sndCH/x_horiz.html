@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../../srcHTML/vidPicker/horizstyle.css">
+</head>
+
+<body id="myBody">
+    <img class="fullPage" id="backgroundX" src="../../../srcHTML/vidPicker/img/BG0.png">
+    <div id="pickerDiv" class="selector">
+    <select id="filePicker" onchange="switchVid(this.id,directory.id)" size=1>  <!--Call run() function-->
+
+        <option>1_02_gummiBears-Theme.mp4</option>
+    </select>
+    </div>
+    <video src="./1_02_gummiBears-Theme.mp4" id="vidPicked" onmouseover="initVidPlayer(this.id)"></video>
+    <div id="directory" style="display:none">./</div>
+</body> 
+    <script src="../../../srcHTML/vidPicker/functions.js"></script> 
+</html> 

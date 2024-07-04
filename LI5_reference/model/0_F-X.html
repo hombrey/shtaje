@@ -11,23 +11,13 @@
     </script>
     <link rel="stylesheet" href="../../srcHTML/FrameSeq/styles.css">
 </head>
-    <!--}}}head-->
 <body>
-    <!--{{{outerFrame-->
- <img class="fullPage" id="backgroundX" src="../../srcHTML/FrameSeq/background.jpg">
- <iframe class="subframe" id="myIframe" src="../../srcHTML/startpage/index.html"></iframe>
-
-    <select id="toolSelect" onClick="setToolSource(this.value)" size=1 autofocus> 
-      <option value="../../srcHTML/Klyne/klyne.html">Klyne</option> 
-      <option value="./">localDir</option> 
-   </select>
-    <!--}}}outerFrame-->
+    <!--}}}head-->
     <select id="seqSelect" onChange="setSeqSource()" size=1> 
-        <option value="../../srcHTML/startpage/index.html">model</option> 
 
-        <option value="./10_vidPicker/x_drop.html">10_vidPicker-drop</option> 
-        <option value="./10_vidPicker/x_horiz.html">10_vidPicker-horiz</option> 
-        <option value="./10_vidPicker/x_vert.html">10_vidPicker-vert</option> 
+        <option value="./10_vidPicker/x_drop.html">10_vidPicker</option> 
+        <option value="./10_vidPicker/x_horiz.html">10_vidPicker</option> 
+        <option value="./10_vidPicker/x_vert.html">10_vidPicker</option> 
         <option value="./30_PeepWav1/xPeepWave.html">30_PeepWav1</option> 
         <option value="./30_PeepWav2/xPeepWave.html">30_PeepWav2</option> 
         <option value="./40_picAndChoose/x_choose.html">40_picAndChoose</option> 
@@ -39,6 +29,7 @@
         <option value="./53_Jeopardy9/x_Pick.html">53_Jeopardy9</option> 
         <option value="./54_typhoon16/x_Pick.html">54_typhoon16</option> 
         <option value="./54_typhoon25/x_Pick.html">54_typhoon25</option> 
+        <option value="./60_blank-pdf/0_viewDoc.html">60_blank-pdf</option> 
         <option value="./60_blank-reveal/0_rev-JS.html">60_blank-reveal</option> 
         <option value="./60_blank-void/0_void.html">60_blank-void</option> 
         <option value="./71_Step&See-Board9/x_StepSee.html">71_Step&See-Board9</option> 
@@ -46,5 +37,14 @@
         <option value="./73_Step&See-SharkAttack/x_StepSee.html">73_Step&See-SharkAttack</option> 
 
    </select>
+    <!--{{{foot-->
+ <img class="fullPage" id="backgroundX" src="../../srcHTML/FrameSeq/background.jpg">
+ <iframe class="subframe" id="myIframe" src="./10_vidPicker/x_drop.html" 
+
+    <select id="toolSelect" onClick="setToolSource(this.value)" size=1 autofocus> 
+      <option value="../../srcHTML/Klyne/klyne.html">Klyne</option> 
+      <option value="./">localDir</option> 
+   </select>
 </body>
 </html>
+    <!--}}}foot-->

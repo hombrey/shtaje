@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kindy</title> 
+    <meta name="description" content="select lessons from here">
+    <meta name="author" content="Hombrey">
+    <link rel="stylesheet" href="./srcHTML/katalog/styles.css">
+    <script src="./srcHTML/katalog/functions.js"></script> 
+</head>
+
+<body id="myBody">
+    <div id="srcdir" style="display:none;">./srcHTML/katalog/</div>
+    <div id="assetdir" style="display:none">./</div>
+
+     <div class="gridbox">
+
+          <img class="fullPage" id="backgroundX" src="./srcHTML/katalog/img/BG0.webp">
+          <img class="fullPage" id="foregroundX" src="./srcHTML/katalog/img/null.webp">
+          <select id="selectMam" name="" onChange="selectFile(this.value)" onclick="openNewTab(this.value)" size=15>
+          </select>
+
+          <select id="selectChoi" name="" onChange="selectFile(this.value)" onclick="openNewTab(this.value)" size=15>
+          </select>
+
+          <select id="selectLa" name="" onChange="selectFile(this.value)" onclick="openNewTab(this.value)" size=15>
+          </select>
+
+          <select id="selectOthers" name="" onChange="selectFile(this.value)" onclick="openNewTab(this.value)" size=15>
+          <option value="./LI5_reference/model/0_F-X.html">./LI5_reference/model/0_F-X.html</option>
+          </select>
+     </div>  <!-- gridbox --> 
+</body> 
+</html>

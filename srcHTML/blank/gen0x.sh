@@ -62,6 +62,9 @@ fi
 	echo "    <script src=\"$SOURCEDIR/functions.js\"></script> " >> $TARGETFILE
 	echo "</head>" >> $TARGETFILE
 	echo "<body>" >> $TARGETFILE
+	if [[ $1 == *"background"*"webp" || $1 == *"background"*"jpg" ]]; then
+		echo " <img class=\"fullPage\" id=\"backgroundX\" src=\"./$1\">" >> $TARGETFILE
+	fi
 	echo "    <select class=\"selectBox\" id=\"dummy\"><option>reveal</option></select>" >> $TARGETFILE
 	echo "		<script>sourceDir=\"$SOURCEDIR/\"</script>" >> $TARGETFILE
 	echo "		<div class=\"reveal\"> <div class=\"slides\">" >> $TARGETFILE

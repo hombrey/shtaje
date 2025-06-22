@@ -65,7 +65,7 @@ while IFS= read -r line
 do
     EVAL=`echo " \"$line\" "`
     if [[ $EVAL == *"html"* && $EVAL != *"0_"* ]]; then
-    echo "        <option value=\"./$line\">leqx</option> " >> $GENFILE
+    # echo "        <option value=\"./$line\">leqx</option> " >> $GENFILE
         ((arrayIndex++))
     fi
 done < "$input"
@@ -128,7 +128,7 @@ case $LESSONDIR in
 		if [[ $hasStartPage == "y" ]]; then
 					echo " <iframe class=\"subframe\" id=\"myIframe\" src=\"$SOURCEROOT/startpage/index.html\"></iframe>" >> $GENFILE
 		else
-					echo " <iframe class=\"subframe\" id=\"myIframe\" src=\"$FIRSTHTML\" ">> $GENFILE
+					echo " <iframe class=\"subframe\" id=\"myIframe\" src=\"$FIRSTHTML\"</iframe> ">> $GENFILE
 		fi
 	;;
 esac

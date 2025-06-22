@@ -13,6 +13,7 @@ let helpHandle;
 let isSeqBR=true;
 //let isPopFrameShown=false;
 let selectHandle;
+let isFrameFullScreen=false;
 
 let setSeqEvent;
 // }}} variables
@@ -81,6 +82,8 @@ function evalKeyDown(evnt) {
     case 13 :  evnt.preventDefault();
                 activateChoice();
                 break; //return
+        case 70 :  if(!event.ctrlKey) toggleFrameFullScreen(evnt); //if
+                   break; // 'f'
        case 75  : if (!event.shiftKey) popFrame("show"); 
                   else window.open("../../index.html","_self");
                   break; //key: k
@@ -199,6 +202,25 @@ function scaleScreen() {
 //}}} initializations
 
 // {{{ framer handling functions
+async function toggleFrameFullScreen(evnt) {
+    evnt.preventDefault();
+    if (!isFrameFullScreen){
+        if (window.requestFullscreen) { window.requestFullscreen(); }
+        else if (window.webkitRequestFullScreen) { window.webkitRequestFullScreen(); }
+        isFrameFullScreen = true;
+    }//if (!isFullScreen)
+    else {
+        if (window.exitFullscreen) { window.exitFullscreen(); } 
+        else if (window.webkitExitFullscreen) { window.webkitExitFullscreen(); }
+        isFrameFullScreen = false;
+        
+        //return focus to element after extiing from fullscreen
+        await delay (200);
+        document.getElementById("seqSelect").focus();
+    } //else of isfullScreen
+                   
+} //function toggleFullScreen()
+
 function popFrame(action) {
     var childWindow = document.getElementById("altIframe");
 

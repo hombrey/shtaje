@@ -31,14 +31,15 @@ function evalKey(evnt) {
        case 82  : window.location.reload(); 
                   break; //key: r
        case 48  : if (!isCalled)callKlyne();break; //key: 0
+       case 49  : if (!isCalled)callKlyne();break; //key: 1
        case 49  : if (isCalled) spriteJump("1");break; //key: 1
        case 50  : if (isCalled) spriteJump("2");break; //key: 2
        case 51  : if (isCalled) spriteJump("3");break; //key: 3
        case 52  : if (isCalled) spriteJump("4");break; //key: 4
        case 53  : if (isCalled) spriteJump("5");break; //key: 5
        case 78  : if (!evnt.ctrlKey) duplNewTab();break; //key: n
-       case 37  : if (isCalled) spriteJump("down"); break; //key: right
-       case 39  : if (isCalled) spriteJump("up"); break; //key: left
+       // case 37  : if (isCalled) spriteJump("down"); break; //key: right
+       // case 39  : if (isCalled) spriteJump("up"); break; //key: left
        default  : return;
     } //switch (keyPressed)
 

@@ -12,7 +12,7 @@ echo "<!DOCTYPE html>" > index.html
 echo "<html lang=\"en\">" >> index.html
 echo "<head>" >> index.html
 echo "    <meta charset=\"UTF-8\">" >> index.html
-echo "    <title>Kindy</title> " >> index.html
+echo "    <title>Katalog</title> " >> index.html
 echo "    <meta name=\"description\" content=\"select lessons from here\">" >> index.html
 echo "    <meta name=\"author\" content=\"Hombrey\">" >> index.html
 echo "    <link rel=\"stylesheet\" href=\"$SOURCEDIR/styles.css\">" >> index.html

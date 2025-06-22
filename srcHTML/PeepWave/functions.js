@@ -78,6 +78,8 @@ function evalKeyDown(evnt) {
        case 54  : nextScene(6); break; //key: 6
        case 55  : nextScene(7); break; //key: 7
        case 56  : nextScene(8); break; //key: 8
+       case 57  : nextScene(9); break; //key: 9
+       case 48  : nextScene(10); break; //key: 0
        case 38  : nextScene(imgIndex-1); break; //key: <up>
        case 40  : nextScene(imgIndex+1); break; //key: <down>
        case 83  : skipRandom(); break; //key: s

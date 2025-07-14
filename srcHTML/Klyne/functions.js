@@ -30,13 +30,21 @@ function evalKey(evnt) {
                   break; //key: w
        case 82  : window.location.reload(); 
                   break; //key: r
-       case 48  : if (!isCalled)callKlyne();break; //key: 0
-       case 49  : if (!isCalled)callKlyne();break; //key: 1
-       case 49  : if (isCalled) spriteJump("1");break; //key: 1
+       case 48  : if (!isCalled)callKlyne(); break; //key: 0
+       case 49  : if (!isCalled)callKlyne();
+									else spriteJump("1");
+												break; //key: 1
+       case 65  : if (!isCalled)callKlyne();
+									else spriteJump("1");
+												break; //key: a
        case 50  : if (isCalled) spriteJump("2");break; //key: 2
+       case 66  : if (isCalled) spriteJump("2");break; //key: b
        case 51  : if (isCalled) spriteJump("3");break; //key: 3
+       case 67  : if (isCalled) spriteJump("3");break; //key: c
        case 52  : if (isCalled) spriteJump("4");break; //key: 4
+       case 68  : if (isCalled) spriteJump("4");break; //key: d
        case 53  : if (isCalled) spriteJump("5");break; //key: 5
+       case 69  : if (isCalled) spriteJump("5");break; //key: e
        case 78  : if (!evnt.ctrlKey) duplNewTab();break; //key: n
        // case 37  : if (isCalled) spriteJump("down"); break; //key: right
        // case 39  : if (isCalled) spriteJump("up"); break; //key: left
@@ -136,8 +144,7 @@ function callKlyne() {
 function spriteJump(jumpDirection) {
 
 		let beforeJump;
-
-    //console.log(spriteNum);
+    // console.log ("spriejump ",jumpDirection);
     if (jumpDirection=="up") {
         jumpSound.start();
         spriteNum++;
@@ -162,6 +169,7 @@ function spriteJump(jumpDirection) {
     movX = [0, 1*15, 2*15+1 , 3*15+2, 4*15+3];
     movY = [0, 1*-10, 2*-10, 3*-10, 4*-10+1];
     //sprite.style.cssText ="transform: translate("+movX[spriteNum-1]+"vw,"+movY[spriteNum-1]+"vh);transition: transform 900ms;";
+    // console.log ("#sprite {transform: translate("+movX[spriteNum-1]+"vw,"+movY[spriteNum-1]+"vh);}");
     insertCss ("#sprite {transform: translate("+movX[spriteNum-1]+"vw,"+movY[spriteNum-1]+"vh);}");
     
     setTimeout (function() {

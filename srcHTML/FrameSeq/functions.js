@@ -205,13 +205,13 @@ function scaleScreen() {
 async function toggleFrameFullScreen(evnt) {
     evnt.preventDefault();
     if (!isFrameFullScreen){
-        if (window.requestFullscreen) { window.requestFullscreen(); }
-        else if (window.webkitRequestFullScreen) { window.webkitRequestFullScreen(); }
+        if (document.body.requestFullscreen) { document.body.requestFullscreen(); }
+        else if (document.body.webkitRequestFullScreen) { document.body.webkitRequestFullScreen(); }
         isFrameFullScreen = true;
     }//if (!isFullScreen)
     else {
-        if (window.exitFullscreen) { window.exitFullscreen(); } 
-        else if (window.webkitExitFullscreen) { window.webkitExitFullscreen(); }
+        if (document.body.exitFullscreen) { document.body.exitFullscreen(); } 
+        else if (document.body.webkitExitFullscreen) { document.body.webkitExitFullscreen(); }
         isFrameFullScreen = false;
         
         //return focus to element after extiing from fullscreen

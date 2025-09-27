@@ -62,7 +62,11 @@ function evalKeyDown(evnt) {
         case 49 : evalChosen(1); break; //key: 1
         case 50 : evalChosen(2); break; //key: 2
         case 51 : evalChosen(3); break; //key: 3
-        case 52 : evalChosen(4); break; //key: 4
+        case 65 : evalChosen(4); break; //key: 4
+        case 65 : evalChosen(1); break; //key: a
+        case 66 : evalChosen(2); break; //key: b
+        case 67 : evalChosen(3); break; //key: c
+        case 68 : evalChosen(4); break; //key: d
         case 39 : rotatePiece(90);break; //key: right
         case 37 : rotatePiece(-90);break; //key: left
        case 83  : skipRandom(); break; //key: s

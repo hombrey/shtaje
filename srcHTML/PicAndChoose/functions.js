@@ -8,6 +8,7 @@ let imgIndex=-1;
 let assetDir, sourceDir;
 let mainImg;
 let pickSound, tingSound, errSound, cardSound;
+let wav1, wav2, wav3, wav4;
 let activeNum=1;
 let isPicFullScreen=false;
 let angleImg=0;
@@ -16,6 +17,7 @@ let helpHandle;
 let contentInfoHandle;
 let isMute=true;
 let keepLooping=false;
+let wavCount=0;
 //}}}variable declarations
 
 //{{{class declarations
@@ -62,7 +64,7 @@ function evalKeyDown(evnt) {
         case 49 : evalChosen(1); break; //key: 1
         case 50 : evalChosen(2); break; //key: 2
         case 51 : evalChosen(3); break; //key: 3
-        case 65 : evalChosen(4); break; //key: 4
+        case 52 : evalChosen(4); break; //key: 4
         case 65 : evalChosen(1); break; //key: a
         case 66 : evalChosen(2); break; //key: b
         case 67 : evalChosen(3); break; //key: c
@@ -151,6 +153,22 @@ function initWin() {
     choices[4-1].resetY = "84vh";
     choices[4-1].resetX = "84vw";
 
+
+    //try to extract the wavcount from generated HTML file
+    try {
+        wavCount = document.getElementById("wavcount").innerHTML;
+    } //try
+    catch(err) {
+        console.log ("wav divID is not available");
+    }
+
+		if (wavCount == 4) {
+			wav1 = new sound(assetDir+"wav/1.mp3");
+			wav2 = new sound(assetDir+"wav/2.mp3");
+			wav3 = new sound(assetDir+"wav/3.mp3");
+			wav4 = new sound(assetDir+"wav/4.mp3");
+		} //if *wavCount >0)
+		
 
     pickSound = new sound(sourceDir+"wav/pick.mp3");
     tingSound = new sound(sourceDir+"wav/ting.mp3");
@@ -254,7 +272,17 @@ function evalChosen(numChosen) {
     choices[numChosen-1].style.left= '43vw';
 
     if (numChosen == promptSet[imgIndex].ans) {
-        tingSound.start();
+
+				if (wavCount == 4) {
+					console.log ("chosen:"+numChosen); 
+					if (numChosen == 1) wav1.start()
+					if (numChosen == 2) wav2.start()
+					if (numChosen == 3) wav3.start()
+					if (numChosen == 4) wav4.start()
+				} else { //if *wavCount >0)
+					tingSound.start();
+				}  //if *wavCount >0)
+
     }// if (numChosen == promptSet)
     else {
         errSound.start();

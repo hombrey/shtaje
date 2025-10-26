@@ -1,6 +1,8 @@
 #!/bin/bash
 
 LESSONDIR=`pwd`
+WAVCOUNT="$(find ./wav -maxdepth 1 -type f -printf x | wc -c)"
+
 ls |sort -n > $LESSONDIR/rawlist.txt
 
 read -p "shuffle? (y/n) " isShuffled
@@ -69,6 +71,7 @@ done < "$input"
 
 echo "      new PromptString(\"\",0)];" >> x_choose.html
 echo "    </script> " >> x_choose.html
+echo "    <div id=\"wavcount\" style=\"display:none\">$WAVCOUNT</div>" >> x_choose.html
 echo "</body> " >> x_choose.html
 echo "</html> " >> x_choose.html
 

@@ -108,13 +108,22 @@ select:focus {
     overflow-x: hidden;
 } /*fullPage*/
 
-.subframe {
+.subframe,.maxframe {
     z-index: 1;
     position: fixed;
     top: 0.1vh;
     left: 0.1vw;
     height: 99.5vh;
     width: 99.5vw;
+} /*subframe*/
+
+.compressframe {
+    z-index: 1;
+    position: fixed;
+    /* top: 0.1vh; */
+    /* left: 0.1vw; */
+    height: 85vh;
+    width: 85vw;
 } /*subframe*/
 
 .popframe {

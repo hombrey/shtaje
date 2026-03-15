@@ -10,7 +10,10 @@ let isWBdark=false;
 let IsColorPaneHidden=true;
 let sourceDir;
 let helpHandle;
-let isSeqBR=true;
+let isSeqMAX=true;
+let childSize;
+let childPosY=0.1;
+let childPosX=0.1;
 //let isPopFrameShown=false;
 let selectHandle;
 let isFrameFullScreen=false;
@@ -42,7 +45,7 @@ function evalKeyUp(evnt) {
 function evalMessage (evnt) {
     // Get the sent data
     var data = evnt.data;
-    //console.log ("message received");
+    // console.log ("message received");
 
     switch (data) {
       case "hideKlyne" : popFrame("hide");
@@ -77,25 +80,40 @@ function evalMessage (evnt) {
 
 function evalKeyDown(evnt) {
     let keyPressed = evnt.keyCode;
-    //console.log ("keyUp: ",keyPressed);
+    // console.log ("keyUp: ",keyPressed);
     switch (keyPressed) {
     case 13 :  evnt.preventDefault();
                 activateChoice();
                 break; //return
         case 70 :  if(!event.ctrlKey) toggleFrameFullScreen(evnt); //if
                    break; // 'f'
-       case 75  : if (!event.shiftKey) popFrame("show"); 
+       case 77  : if (!event.shiftKey) popFrame("show"); 
                   else window.open("../../index.html","_self");
-                  break; //key: k
+                  break; //key: m
        case 87  : if (!event.shiftKey) focusIframe(); 
                   else document.getElementById('toolSelect').focus();
                   break; //key: w
-       case 80  : rePositionSeq(); 
+       case 80  : toggleSeqMax(); 
                   break; //key: p
        case 82  : window.location.reload(); 
                   break; //key: r
        case 84  : if (event.shiftKey) window.open(document.getElementById('myIframe').src,'_blank'); 
                   break; //key: shift-t
+       case 72  : if (!isSeqMAX) repositionSeq(0,"x",-5); 
+                  break; //key: h
+       case 76  : if (!isSeqMAX) repositionSeq(0,"x",5); 
+                  break; //key: l
+       case 75  : if (event.shiftKey) window.open("../../index.html","_self");
+									else if (!isSeqMAX) repositionSeq(0,"y",-5);
+                  break; //key: k
+       case 74  : if (!isSeqMAX) repositionSeq(0,"y",5); 
+                  break; //key: j
+       case 39  : evnt.preventDefault(); 
+									if (!isSeqMAX) repositionSeq(10,"",0);
+                  break; //key: right
+       case 37  : evnt.preventDefault();
+									if (!isSeqMAX) repositionSeq(-10,"",0); 
+                  break; //key: left
         case 112  : evnt.preventDefault(); helpHandle.className="unhiddenHelp"; break; //key: F1
         default : return;
     } //switch (keyPressed)
@@ -236,15 +254,62 @@ function popFrame(action) {
     } // if action == "show"
 
 } //function popFrame(action)
-function rePositionSeq() {
-    if (isSeqBR) {
+function toggleSeqMax() {
+    var childWindow = document.getElementById("myIframe");
+
+    if (isSeqMAX) {
         selectHandle.className="seqTC";
-        isSeqBR=false;
+				childWindow.className="compressframe";
+				//set default compressed seq frame
+				childSize=90
+        isSeqMAX=false;
     } else {
+
         selectHandle.className="seqBR";
-        isSeqBR=true;
-    } //if (isSeqBR)
-} //function rePositionSeq()
+				childWindow.className="maxframe";
+				childSize=99.5
+				childPosY=0.1;
+				childPosX=0.1;
+				// childWindow.style.height = childSize+"vh";
+				// childWindow.style.width = childSize+"vw";
+        isSeqMAX=true;
+    } //if (isSeqMAX)
+
+		childWindow.style.bottom = "";
+		childWindow.style.top = "0.1vh";
+		childWindow.style.right = "";
+		childWindow.style.left = "0.1vh";
+		// console.log ("size: ",childSize);
+		childWindow.style.height = childSize+"vh";
+		childWindow.style.width = childSize+"vw";
+
+
+} //function toggleSeqMax()
+
+function repositionSeq(sizeIncrement, axis, posIncrement) { 
+		let anchorPos;
+    var childWindow = document.getElementById("myIframe");
+		// console.log ("anchor: ",anchorPos)
+		// console.log ("increment: ", sizeIncrement)
+
+		if (sizeIncrement != 0) {
+			childSize += sizeIncrement
+			childWindow.style.height = childSize+"vh";
+			childWindow.style.width = childSize+"vw";
+		} // if (sizeincrement != 0)
+
+		if (axis == "y") {
+			childPosY+=posIncrement;
+			childWindow.style.top=childPosY+"vh";
+		} //y axis
+
+		if (axis == "x") {
+			childPosX+=posIncrement;
+			childWindow.style.left=childPosX+"vw";
+		} //x axis
+
+} // function repositionSeq()
+
 function activateChoice() {
     if (document.getElementById("seqSelect") === document.activeElement) {
         //console.log ("sequence");
